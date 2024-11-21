@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import ActivityCard from "../Functionalities/ActivityCard"
-import activitiesService from "../../services/activities.service";
+import { Link } from "react-router-dom";
+import ActivityCard from "./ActivityCard"
+import activitiesService from "../../services/activities.service"
 
 
 function ActivitiesListPage() {
@@ -13,16 +14,17 @@ function ActivitiesListPage() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
+
   useEffect(() => {
     getAllActivities();
   }, []);
 
   return (
     <div className="ActivitiesListPage">
-        {/*falta o path do button para create activity*/}
-      <button>+ Create Activity + </button>
+
+      <Link to={"/api/activities/create"}>
+        <button>+ Create Activity + </button>
+      </Link>
 
       {activities.map((activity) => (
         <ActivityCard key={activity._id} {...activity} />
