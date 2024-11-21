@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/Bars/NavBar'
 import Footer from './components/Bars/Footer'
 import HomePage from './components/Pages/HomePage'
 import NotFoundPage from './components/Pages/NotFoundPage'
+import AboutPage from './components/Pages/AboutPage'
 import ActivitiesListPage from "./components/Pages/ActivitiesListPage"
 import ActivityDetailsPage from './components/Pages/ActivityDetailsPage'
 import CreateActivity from './components/Functionalities/CreateActivity'
@@ -18,6 +20,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <h1>Out In Portugal</h1>
 
       <div>
         <Routes>
@@ -28,15 +31,15 @@ function App() {
 
           {/* Routes for Activities*/}
           <Route path="/api/activities" element={<ActivitiesListPage />} />
-          <Route path="/api/activities" element={<CreateActivity />} />
+          <Route path="/api/activities/create" element={<CreateActivity />} />
           <Route path="/api/activities/:activityId" element={<ActivityDetailsPage />} />
 
 
           {/* Routes for Events*/}
           <Route path="/api/events" element={<EventsListPage />} />
-          <Route path="/api/events" element={<CreateEvent />} />
+          <Route path="/api/events/create" element={<CreateEvent />} />
           <Route path="/api/events/:eventId" element={<EventDetailsPage />} />
-          <Route path="/api/events/:eventId" element={<EditEvent />} />
+          <Route path="/api/events/edit/:eventId" element={<EditEvent />} />
 
          
           {/* Routes for Users*/}
