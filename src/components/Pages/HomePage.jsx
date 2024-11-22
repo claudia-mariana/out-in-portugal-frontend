@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import activitiesService from "../../services/activities.service";
 import eventsService from "../../services/events.service";
-import ActivitiesListPage from "./ActivitiesListPage";
 import homepageBackground from "../images/homepageBackground.png"
-import EventsListPage from "./EventsListPage";
+import ActivityCard from "./ActivityCard";
+import EventCard from "../Functionalities/EventCard";
+
 
 function HomePage() {
     const [activities, setActivities] = useState([]);
