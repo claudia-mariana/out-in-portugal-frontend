@@ -7,6 +7,7 @@ function CreateEvent() {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
+      //mudar para base url
       fetch('http://localhost:5005/api/activities')
         .then(response => response.json())
         .then(data => setActivities(data))
@@ -74,7 +75,7 @@ function CreateEvent() {
                   <option hidden defaultValue value="">Select an activity</option>
                   {activities.map((activity) => (
                       <option key={activity._id} value={activity._id}>
-                          {activity.title} {/* Assume each activity has a name field */}
+                          {activity.title} 
                       </option>
                   ))}
               </select>
