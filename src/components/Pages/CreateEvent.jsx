@@ -3,17 +3,30 @@ import eventsService from "../../services/events.service";
 import { useEffect } from "react";
 
 function CreateEvent() {
+   
+    const [activities, setActivities] = useState([]);
+
+    useEffect(() => {
+      fetch('http://localhost:5005/api/activities')
+        .then(response => response.json())
+        .then(data => setActivities(data))
+        .catch(err => console.error('Error fetching activities:', err));
+    }, []);
+
+
   const [title, setTitle] = useState("");
-  const [activity, setActivity] = useState({});
-  const [startDate, setStartDate] = useState("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState("YYYY-MM-DD");
+  const [activity, setActivity] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [description, setDescription] = useState("");
   const [organization, setOrganization] = useState("");
   const [meetingPoint, setMeetingPoint] = useState("");
-  const [targetAudience, setTargetAudience] = useState({});
-  const [duration, setDuration] = useState(1);
+  const [targetAudience, setTargetAudience] = useState("");
+  const [duration, setDuration] = useState("");
   const [equipment, setEquipment] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
+
+
 
 
   const handleSubmit = (e) => {
@@ -23,16 +36,16 @@ function CreateEvent() {
     eventsService.createEvent(requestBody)
       .then(() => {
         setTitle("");
-        setActivity({});
-        setStartDate(date.now);
-        setEndDate(date.now)
+        setActivity("");
+        setStartDate("");
+        setEndDate("")
         setDescription("");
         setOrganization("");
         setMeetingPoint("");
-        setTargetAudience({});
-        setDuration(1);
+        setTargetAudience("");
+        setDuration("");
         setEquipment("");
-        setPrice(0);
+        setPrice("");
       })
       .catch((error) => console.log(error));
   };
@@ -42,25 +55,32 @@ function CreateEvent() {
     <div>
       <h3>Create Event</h3>
 
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        {/*ideally this shoul be a select input, to choose between existing activities on DB */}
-        <label>Activity:</label>
-        <input
-          type="text"
-          name="activityId"
-          value={activity}
-          onChange={(e) => setActivity(e.target.value)}
-        />
+          <form onSubmit={handleSubmit}>
+              <label>Title:</label>
+              <input
+                  type="text"
+                  name="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+              />
 
-        <label>Start Date:</label>
-        <input
+              <label>Activity:</label>
+              <select
+                  name="activityId"
+                  value={activity}
+                  onChange={(e) => setActivity(e.target.value)}
+                  required
+              >
+                  <option hidden defaultValue value="">Select an activity</option>
+                  {activities.map((activity) => (
+                      <option key={activity._id} value={activity._id}>
+                          {activity.title} {/* Assume each activity has a name field */}
+                      </option>
+                  ))}
+              </select>
+
+              <label>Start Date:</label>
+              <input
           type="date"
           name="startDate"
           value={startDate}
@@ -110,7 +130,7 @@ function CreateEvent() {
 
         <label>Duration:</label>
         <input
-          type="number"
+          type="text"
           name="duration"
           value={duration}
           onChange={(e) => setDuration(e.target.value)}
@@ -126,13 +146,13 @@ function CreateEvent() {
 
         <label>Price:</label>
         <input
-          type="number"
+          type="text"
           name="price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit">Create</button>
       </form>
     </div>
   );
