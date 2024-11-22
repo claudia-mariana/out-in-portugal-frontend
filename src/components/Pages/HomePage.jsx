@@ -6,20 +6,10 @@ import homepageBackground from "../images/homepageBackground.png"
 import ActivityCard from "./ActivityCard";
 import EventCard from "../Functionalities/EventCard";
 
+const categories = ["Aquatic", "Mountain", "Forest", "Beach", "Urban", "Other"];
 
 function HomePage() {
-    const [activities, setActivities] = useState([]);
     const [events, setEvents] = useState([])
-
-    const getActivities = () => {
-        activitiesService
-            .getAllActivities()
-            .then((response) => {
-                setActivities(response.data.slice(0, 6));
-            })
-            .catch((error) => console.log(error));
-    };
-
 
     const getEvents = () => {
         eventsService
@@ -31,7 +21,6 @@ function HomePage() {
     };
 
     useEffect(() => {
-        getActivities();
         getEvents();
     }, []);
 
@@ -45,15 +34,16 @@ function HomePage() {
             </div>
 
             <div>
-                <h2>Explore Activities</h2>
-                <div className="activities-preview">
-                    {activities.map((activity) => (
-                        <ActivityCard key={activity._id} {...activity} />
+                <h2>Explore Categories</h2>
+                <div className="categories-preview">
+                    {categories.map((category) => (
+                        <NavLink 
+                        key={category}
+                        to={`/activities?category=${category}`}> 
+                        {category}
+                        </NavLink>
                     ))}
                 </div>
-                <NavLink to="/api/activities">
-                    <button>See All Activities</button>
-                </NavLink>
             </div>
 
 
@@ -64,15 +54,15 @@ function HomePage() {
                         <EventCard key={event._id} {...event} />
                     ))}
                     <NavLink to="/api/events">
-                    <button>See More</button>
-                </NavLink>
+                        <button>See More</button>
+                    </NavLink>
                 </div>
             </div>
 
             <div>
                 <h2>Create an Event</h2>
                 <NavLink to="/api/events/create">
-                    <a>Create Event</a>
+                    Create Event
                 </NavLink>
             </div>
         </>
