@@ -20,7 +20,7 @@ function ActivitiesListPage() {
   }, []);
 
   return (
-    <div className="ActivitiesListPage">
+    <div>
 
       <Link to={"/api/activities/create"}>
         <button>+ Create Activity + </button>
