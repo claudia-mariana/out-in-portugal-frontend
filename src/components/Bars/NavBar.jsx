@@ -11,32 +11,32 @@ function NavBar() {
             </div>
             <div>
                 <NavLink to="/">
-                    <a>Home</a>
+                    Home
                 </NavLink>
 
                 <NavLink to="/about-page">
-                    <a>About</a>
+                    About
                 </NavLink>
 
                 <NavLink to="/api/activities">
-                    <a>Activities</a>
+                    Activities
                 </NavLink>
 
                 <NavLink to="/api/events">
-                    <a>Events</a>
+                    Events
                 </NavLink>
             </div>
             <div>
                 <NavLink to="/api/events/create">
-                    <a>Create Event</a>
+                    Create Event
                 </NavLink>
 
                 <NavLink to="/auth/login">
-                    <a>Login</a>
+                    Login
                 </NavLink>
 
                 <NavLink to="/auth/signup">
-                    <a>Sign Up</a>
+                    Sign Up
                 </NavLink>
             </div>
         </>
