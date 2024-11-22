@@ -1,5 +1,7 @@
 function AboutPage(){
-
+<div>
+    
+</div>
 }
 
 
