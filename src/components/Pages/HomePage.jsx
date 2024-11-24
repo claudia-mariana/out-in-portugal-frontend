@@ -37,11 +37,13 @@ function HomePage() {
                 <h2>Explore Categories</h2>
                 <div className="categories-preview">
                     {categories.map((category) => (
-                        <NavLink 
-                        key={category}
-                        to={`/activities?category=${category}`}> 
-                        {category}
+                        <NavLink
+                            key={category}
+                            to={`/api/activities/category/${category}`}
+                        >
+                            {category}
                         </NavLink>
+
                     ))}
                 </div>
             </div>
@@ -51,19 +53,17 @@ function HomePage() {
                 <h2>Explore Events</h2>
                 <div className="events-preview">
                     {events.map((event) => (
-                        <EventCard key={event._id} {...event} />
+                        <NavLink
+                            key={event._id}
+                            to={`/api/events/${event._Id}`}
+                        >
+                            {event.title}
+                        </NavLink>
                     ))}
                     <NavLink to="/api/events">
                         <button>See More</button>
                     </NavLink>
                 </div>
-            </div>
-
-            <div>
-                <h2>Create an Event</h2>
-                <NavLink to="/api/events/create">
-                    Create Event
-                </NavLink>
             </div>
         </>
     )

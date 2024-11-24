@@ -34,6 +34,11 @@ class ActivitiesService {
     return this.api.get(`/api/activities/${id}`);
   };
 
+  // GET /api/activities/category/:category
+  getActivitiesByCategory = (category) => {
+    return this.api.get(`/api/activities/category/${category}`);
+  }
+
 }
 
 // Create one instance (object) of the service

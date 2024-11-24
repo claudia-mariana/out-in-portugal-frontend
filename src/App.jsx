@@ -15,6 +15,7 @@ import CreateEvent from './components/Pages/CreateEvent'
 import EditEvent from './components/Functionalities/EditEvent'
 import SignUpPage from './components/Pages/SignUpPage'
 import LogInPage from './components/Pages/LogInPage'
+import CategoryPage from './components/Pages/CategoryPage'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/api/activities" element={<ActivitiesListPage />} />
           <Route path="/api/activities/create" element={<CreateActivity />} />
           <Route path="/api/activities/:activityId" element={<ActivityDetailsPage />} />
+          <Route path="/api/activities/category/:category" element={<CategoryPage />} />
 
 
           {/* Routes for Events*/}
