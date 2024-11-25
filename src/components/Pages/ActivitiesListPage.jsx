@@ -20,16 +20,18 @@ function ActivitiesListPage() {
   }, []);
 
   return (
-    <div>
-
+    <>
       <Link to={"/api/activities/create"}>
         <button>+ Create Activity + </button>
       </Link>
 
-      {activities.map((activity) => (
+      <div className="activities-container">
+        {activities.map((activity) => (
         <ActivityCard key={activity._id} {...activity} />
       ))}
-    </div>
+      </div>
+      
+    </>
   );
 }
 

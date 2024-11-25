@@ -9,12 +9,9 @@ function NavBar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
     return (
-        <>
-            <div>
+        <div className="navbar">
                 <img src={logo} className="logo" alt="OutinPortugal Logo" />
                 <h3>OutInPortugal</h3>
-            </div>
-            <div>
                 <NavLink to="/">
                     Home
                 </NavLink>
@@ -30,8 +27,6 @@ function NavBar() {
                 <NavLink to="/api/events">
                     Events
                 </NavLink>
-            </div>
-            <div>
                 <NavLink to="/api/events/create">
                     Create Event
                 </NavLink>
@@ -55,8 +50,7 @@ function NavBar() {
                     </>
                 )}
 
-            </div>
-        </>
+        </div>
     )
 }
 
