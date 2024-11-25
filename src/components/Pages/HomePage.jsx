@@ -5,8 +5,24 @@ import eventsService from "../../services/events.service";
 import homepageBackground from "../images/homepageBackground.png"
 import ActivityCard from "./ActivityCard";
 import EventCard from "../Functionalities/EventCard";
+import aquatic from "../Images/aquatic.jpg"
+import beach from "../images/beach.jpg";
+import forest from "../images/forest.jpg";
+import mountain from "../images/mountain.png";
+import urban from "../images/urban.jpg";
+import other from "../images/other.png";
 
 const categories = ["Aquatic", "Mountain", "Forest", "Beach", "Urban", "Other"];
+
+const categoryImage = {
+    Aquatic: aquatic,
+    Beach: beach,
+    Forest: forest,
+    Mountain: mountain,
+    Urban: urban,
+    Other: other,
+};
+
 
 function HomePage() {
     const [events, setEvents] = useState([])
@@ -19,6 +35,8 @@ function HomePage() {
             })
             .catch((error) => console.log(error));
     };
+
+    
 
     useEffect(() => {
         getEvents();
@@ -41,6 +59,11 @@ function HomePage() {
                             key={category}
                             to={`/api/activities/category/${category}`}
                         >
+                            <img 
+                            src={categoryImage[category]} 
+                            className="category image" 
+                            alt={`${category} category`} 
+                            />
                             {category}
                         </NavLink>
 
