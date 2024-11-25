@@ -5,7 +5,7 @@ function ActivityCard(activity) {
 
   return (
     <div>
-      <Link to={`/activities/${activity.id}`}>
+      <Link to={`/api/activities/${activity._id}`}>
         <h3>{activity.title}</h3>
       </Link>
       <p>{activity.description}</p>
