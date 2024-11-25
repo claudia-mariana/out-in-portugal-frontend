@@ -55,7 +55,7 @@ function HomePage() {
                     {events.map((event) => (
                         <NavLink
                             key={event._id}
-                            to={`/api/events/${event._Id}`}
+                            to={`/api/events/${event._id}`}
                         >
                             {event.title}
                         </NavLink>

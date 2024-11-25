@@ -7,12 +7,11 @@ const formatDate = (dateString) => {
   return new Intl.DateTimeFormat('default', options).format(new Date(dateString));
 }
 
-
 function EventCard(event) {
 
 const deleteEvent = () => {
 
-    eventsService.deleteEvent(eventId)        
+    eventsService.deleteEvent(event._id)        
         .then(() => Navigate("/api/events"))
         .catch((err) => console.log(err));
     };  

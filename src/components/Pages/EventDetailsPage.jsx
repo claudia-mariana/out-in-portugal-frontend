@@ -29,7 +29,7 @@ function EventDetailsPage() {
                 <>
                     <h3>{event.title}</h3>
                     <p>Related to the activity: {event.activity.title}</p>
-                    <p>Price: {event.price}</p>
+                    <p>Price: {event.price}€</p>
                     <p>Meeting Point: {event.meetingPoint}</p>
                     <p>Start Date: {event.startDate}</p>
                     <p>End Date: {event.endDate}</p>
@@ -42,6 +42,11 @@ function EventDetailsPage() {
                         <button>Edit Event</button>
                     </NavLink>
                     <button onClick={deleteEvent}>Delete Event</button>
+
+                    <NavLink to={"/api/events"}>
+                        <button>Back</button>
+                    </NavLink>
+
                 </>
                 :
                 <h1>loading...</h1>}

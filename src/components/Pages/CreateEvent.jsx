@@ -1,10 +1,12 @@
 import { useState } from "react";
 import eventsService from "../../services/events.service";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateEvent() {
    
     const [activities, setActivities] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
       //mudar para base url
@@ -47,6 +49,7 @@ function CreateEvent() {
         setDuration("");
         setEquipment("");
         setPrice("");
+        navigate("/api/events")
       })
       .catch((error) => console.log(error));
   };
@@ -145,7 +148,7 @@ function CreateEvent() {
           onChange={(e) => setEquipment(e.target.value)}
         />
 
-        <label>Price:</label>
+        <label>Price(€):</label>
         <input
           type="text"
           name="price"

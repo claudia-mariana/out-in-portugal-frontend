@@ -38,7 +38,9 @@ function ActivityDetailsPage() {
                     {activity.events && activity.events.length > 0 ? (
                         activity.events.map((event) => (
                             <div key={event._id}>
-                                <h5>{event.title}</h5>
+                                <NavLink to={`/api/events/${event._id}`}>
+                                    <h5>{event.title}</h5>
+                                </NavLink>
                                 <p>{event.description}</p>
                                 <p>Date: {event.date}</p>
                             </div>

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import eventsService from "../../services/events.service";
 
+const formatDate = (date) => new Date(date).toISOString().split('T')[0];
 
 function EditEvent() {
     const [title, setTitle] = useState("");
@@ -15,14 +17,14 @@ function EditEvent() {
     const [duration, setDuration] = useState(10);
     const [equipment, setEquipment] = useState("");
     const [price, setPrice] = useState(0);
-  
+
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-      fetch('http://localhost:5005/api/activities')
-        .then(response => response.json())
-        .then(data => setActivities(data))
-        .catch(err => console.error('Error fetching activities:', err));
+        fetch('http://localhost:5005/api/activities')
+            .then(response => response.json())
+            .then(data => setActivities(data))
+            .catch(err => console.error('Error fetching activities:', err));
     }, []);
 
     const { eventId } = useParams();
@@ -34,9 +36,9 @@ function EditEvent() {
             .then((response) => {
                 const oneEvent = response.data;
                 setTitle(oneEvent.title);
-                setActivity(oneEvent.activity);
-                setStartDate(oneEvent.startDate);
-                setEndDate(oneEvent.endDate);
+                setActivity(oneEvent.activity._id);
+                setStartDate(formatDate(oneEvent.startDate));
+                setEndDate(formatDate(oneEvent.endDate));
                 setDescription(oneEvent.description);
                 setOrganization(oneEvent.organization);
                 setMeetingPoint(oneEvent.meetingPoint);
@@ -138,7 +140,12 @@ function EditEvent() {
                 />
 
                 <label>Target Audience:</label>
-                <select required onChange={(e) => setTargetAudience(e.target.value)}>
+                <select
+                    name="targetAudience"
+                    value={targetAudience}
+                    onChange={(e) => setTargetAudience(e.target.value)}
+                    required
+                >
                     <option hidden defaultValue value="">Select an option</option>
                     <option value="Children">Children</option>
                     <option value="Adults">Adults</option>
@@ -162,7 +169,7 @@ function EditEvent() {
                     onChange={(e) => setEquipment(e.target.value)}
                 />
 
-                <label>Price:</label>
+                <label>Price(€):</label>
                 <input
                     type="text"
                     name="price"
@@ -174,6 +181,10 @@ function EditEvent() {
             </form>
 
             <button onClick={deleteEvent}>Delete Event</button>
+            <NavLink to={"/api/events"}>
+                <button>Back</button>
+            </NavLink>
+
         </div>
     );
 }

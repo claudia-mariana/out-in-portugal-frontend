@@ -1,13 +1,16 @@
 import { useState } from "react";
 import activitiesService from "../../services/activities.service";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateActivity() {
+  const navigate = useNavigate()
+  
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
-  const [events, setEvents] = useState({});
+  // const [events, setEvents] = useState({});
   const [imageUrl, setImageUrl] = useState("");
 
 
@@ -23,6 +26,7 @@ function CreateActivity() {
         setLocation("");
         setEvents({});
         setImageUrl("");
+        navigate(`/api/activities`)
       })
       .catch((error) => console.log(error));
   };
