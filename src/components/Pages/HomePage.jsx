@@ -45,8 +45,8 @@ function HomePage() {
 
     return (
         <>
-            <div class="text-yellow-300">
-                <img src={homepageBackground} className="background-image" alt=" background" />
+            <div class="yellow">
+                <img src={homepageBackground} class='backgroudImage gradient-to-r' alt=" background" />
 
                 <h1>Explore the amazing outdoor activities happening in Portugal</h1>
             </div>
