@@ -39,7 +39,7 @@ function NavBar() {
 
             <div className="right">
                 <NavLink to="/auth/login">
-                    Login
+                    Log In
                 </NavLink>
 
                 <NavLink to="/auth/signup">
@@ -50,10 +50,10 @@ function NavBar() {
                     <>
                     {/* no futuro é suposto ser um link para os eventos que são criados pelo do user, ou para o user profile*/}
                         <Link to="/api/events">
-                            <button>{user.name}'s Events</button>
+                            <button>{user.name}</button>
                         </Link>
 
-                        <button onClick={logOutUser}>Logout</button>
+                        <button onClick={logOutUser}>Log Out</button>
                     </>
                 )}
             </div>

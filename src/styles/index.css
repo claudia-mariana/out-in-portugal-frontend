@@ -2,6 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  margin-top: 3%;
   background-color: #f4f4f9;
 }
 
@@ -39,7 +40,7 @@ button:hover {
   position: relative;
   background-color: white;
   width: 25vw;
-  height: 50vh;
+  height: 10vh;
   display: flex;
   margin: 1vw 1vh;
   border-radius: 8%;
@@ -105,6 +106,10 @@ a {
 
 /* NAV BAR */
 
+* {
+  box-sizing: border-box;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -112,32 +117,57 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   background-color: #333;
   width: 100%;
   height: 10vh;
-  gap: 2%;
   color: #fff;
-  padding: 10px 20px;
-  /* Adjusted for clarity */
+  padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
-.navbar .left,
-.navbar .center,
-.navbar .right {
+.navbar .logo {
+  width: 10vw;
+  padding: 0%;
+}
+
+.navbar .left{
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 3%;
+  min-width: 0;
+  text-wrap: nowrap;
+  position: absolute;
+  left: 0%;
+}
+
+.navbar .right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  gap: 8%;
+  text-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .navbar .center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  min-width: 0;
   justify-content: center;
   flex-grow: 1;
+  text-wrap: nowrap;
+  gap: 8%;
 }
 
 .navbar .navlink {
-  margin: 0 10vh;
+  margin: 0 2vw;
   color: white;
   text-decoration: none;
   transition: color 0.3s;
@@ -151,15 +181,13 @@ a {
 /* BUTTONS */
 
 button {
-  background-color: #007BFF;
+  background-color: #3ea1cb;
   color: white;
-  padding: 1vw 2vh;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.5vw;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #3ea1cbaa;
 }
