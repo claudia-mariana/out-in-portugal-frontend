@@ -24,7 +24,7 @@ function CreateActivity() {
         setDescription("");
         setCategory("");
         setLocation("");
-        setEvents({});
+        // setEvents({});
         setImageUrl("");
         navigate(`/api/activities`)
       })
