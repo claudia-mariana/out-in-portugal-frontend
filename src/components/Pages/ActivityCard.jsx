@@ -5,7 +5,7 @@ function ActivityCard(activity) {
 
   return (
     <Link to={`/api/activities/${activity._id}`}>
-      <div className="activity-card">
+      <div class="card">
         <img src={activity.imageUrl} alt={activity.title} />
         <div className="content">
           <h3>{activity.title}</h3>
