@@ -9,10 +9,10 @@ function NavBar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
     return (
-        <div class="flex h-12 items-center justify-between p-4 bg-gray-dark text-white shadow-md">
+        <div class="flex h-12 items-center justify-between p-4 bg-blue text-white shadow-md">
             <div class="flex items-center">
                 <NavLink to="/" class="flex items-center space-x-2">
-                    <img src={logo} alt="OutInPortugalLogo" class="h-8 w-auto" />
+                    <img src={logo} alt="OutInPortugalLogo" class="h-12 w-auto" />
                 </NavLink>
 
                 <NavLink to="/" class="flex items-center space-x-2">
@@ -21,16 +21,16 @@ function NavBar() {
             </div>
 
             <div class="flex space-x-6">
-                <NavLink to="/about-page" class="nav-link">
+                <NavLink to="/about-page">
                     About
                 </NavLink>
-                <NavLink to="/api/activities" class="nav-link">
+                <NavLink to="/api/activities">
                     Activities
                 </NavLink>
-                <NavLink to="/api/events" class="nav-link">
+                <NavLink to="/api/events">
                     Events
                 </NavLink>
-                <NavLink to="/api/events/create" class="nav-link">
+                <NavLink to="/api/events/create">
                     Create Event
                 </NavLink>
             </div>
@@ -38,10 +38,10 @@ function NavBar() {
             <div className="flex items-center space-x-4">
                 {!isLoggedIn && (
                     <>
-                        <NavLink to="/auth/login" class="nav-link">
+                        <NavLink to="/auth/login">
                             Log In
                         </NavLink>
-                        <NavLink to="/auth/signup" class="nav-link">
+                        <NavLink to="/auth/signup">
                             Sign Up
                         </NavLink>
                     </>
@@ -50,14 +50,14 @@ function NavBar() {
                 {isLoggedIn && (
                     <>
                         <Link to="/api/events">
-                            <button class="bg-blue-600 hover:bg-blue-500 p-2 rounded">
+                            <button class="hover:bg-blue-hover p-2 rounded">
                                 {user.name}
                             </button>
                         </Link>
 
                         <button
                             onClick={logOutUser}
-                            class="bg-blue-600 hover:bg-blue-500 p-2 rounded"
+                            class="hover:bg-blue-hover p-2 rounded"
                         >
                             Log Out
                         </button>

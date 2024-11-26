@@ -13,6 +13,7 @@ export default {
     },
     colors: {
       'blue': '#2d2c3c',
+      'blue-hover': '#46455c',
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',

@@ -36,7 +36,7 @@ function HomePage() {
             .catch((error) => console.log(error));
     };
 
-    
+
 
     useEffect(() => {
         getEvents();
@@ -45,46 +45,56 @@ function HomePage() {
 
     return (
         <>
-            <div class="yellow">
-                <img src={homepageBackground} class='backgroudImage gradient-to-r' alt=" background" />
+            <div class="relative">
+                <img src={homepageBackground} class='w-full h-56 object-cover' alt="background" />
 
-                <h1>Explore the amazing outdoor activities happening in Portugal</h1>
+                <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl md:text-4xl text-center px-4">
+                    Explore the amazing outdoor activities happening in Portugal
+                </h1>
             </div>
 
             <div>
-                <h2>Explore Categories</h2>
-                <div className="categories-preview">
-                    {categories.map((category) => (
-                        <NavLink
-                            key={category}
-                            to={`/api/activities/category/${category}`}
-                        >
-                            <img 
-                            src={categoryImage[category]} 
-                            className="category image" 
-                            alt={`${category} category`} 
-                            />
-                            {category}
-                        </NavLink>
+                <div class="mt-8 text-center">
+                    <h2 class="text-xl font-semibold mb-6">Explore Categories</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
+                        {categories.map((category) => (
+                            <NavLink
+                                key={category}
+                                to={`/api/activities/category/${category}`}
+                                className="relative block overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                            >
+                                <img
+                                    src={categoryImage[category]}
+                                    class="w-full h-48 object-cover"
+                                    alt={`${category} category`}
+                                />
+                                <div class="absolute bottom-0 left-0 right-0 bg-blue bg-opacity-50 text-white text-center py-1">
+                                    {category}
+                                </div>
+                            </NavLink>
 
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
 
 
-            <div>
-                <h2>Explore Events</h2>
-                <div className="events-preview">
-                    {events.map((event) => (
-                        <NavLink
-                            key={event._id}
-                            to={`/api/events/${event._id}`}
-                        >
-                            {event.title}
-                        </NavLink>
-                    ))}
+                <div class="mt-8 text-center">
+                    <h2 class="text-xl font-semibold mb-6">Explore Events</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
+                        {events.map((event) => (
+                            <NavLink
+                                key={event._id}
+                                to={`/api/events/${event._id}`}
+                                className="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            >
+                                {event.title}
+                            </NavLink>
+                        ))}
+                    </div>
                     <NavLink to="/api/events">
-                        <button>See More</button>
+                        <button class="mt-4 bg-blue-hover hover:bg-gray-light text-white py-2 px-4 rounded transition-colors">
+                            See More
+                        </button>
                     </NavLink>
                 </div>
             </div>
