@@ -21,13 +21,13 @@ function ActivitiesListPage() {
 
   return (
     <>
-    <h1 className="text-yellow-500">Let's Explore!</h1>
-    <h2 className="text-xl my-4">{activities.length} Activities</h2>
+    <h1 className="text-center my-10 text-5xl font-bold ">Let's Explore!</h1>
+    <div className="flex justify-center">
       <Link to={"/api/activities/create"}>
-        <button className="bg-[#28323D] text-white py-2 px-4 rounded-md hover:bg-[#0E1013]">+ Create Activity + </button>
+        <button className="bg-[#28323D] center text-white py-2 px-4 rounded-md hover:bg-[#0E1013]">+ Create Activity + </button>
       </Link>
-
-      <div className="activities-container flex flex-wrap justify-center items-center w-full">
+      </div>
+      <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
         {activities.map((activity) => (
         <ActivityCard key={activity._id} {...activity} />
       ))}
