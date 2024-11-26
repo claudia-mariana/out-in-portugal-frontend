@@ -13,6 +13,7 @@ export default {
     },
     colors: {
       'blue': '#2d2c3c',
+      'blue-hover': '#46455c',
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',
@@ -21,6 +22,7 @@ export default {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
+      'white': "#ffffff"
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
