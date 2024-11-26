@@ -54,45 +54,44 @@ function HomePage() {
             </div>
 
             <div>
-                <div class="mt-8 text-center">
-                    <h2 class="text-xl font-semibold mb-6">Explore Categories</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
+                <div class="mt-20 text-center">
+                    <div className="flex flex-wrap justify-center items-center gap-8 px-4">
                         {categories.map((category) => (
                             <NavLink
                                 key={category}
                                 to={`/api/activities/category/${category}`}
-                                className="relative block overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                                className="relative block overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow"
                             >
                                 <img
                                     src={categoryImage[category]}
-                                    class="w-full h-48 object-cover"
+                                    className="w-[9rem] h-[9rem] md:w-[10rem] md:h-[10rem] object-cover rounded-full"
                                     alt={`${category} category`}
                                 />
-                                <div class="absolute bottom-0 left-0 right-0 bg-blue bg-opacity-50 text-white text-center py-1">
+                                <div className="absolute bottom-0 left-0 right-0 bg-blue bg-opacity-100 text-yellow text-center py-1 rounded-b-full">
                                     {category}
                                 </div>
                             </NavLink>
-
                         ))}
                     </div>
                 </div>
 
 
-                <div class="mt-8 text-center">
-                    <h2 class="text-xl font-semibold mb-6">Explore Events</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
+                <div className="mt-20 flex flex-col items-center">
+                    <h2 className="text-xl font-semibold mb-6 text-center text-blue">Next events:</h2>
+                    <div className="flex flex-col justify-center w-full md:w-1/3 gap-4 px-4">
                         {events.map((event) => (
                             <NavLink
                                 key={event._id}
                                 to={`/api/events/${event._id}`}
-                                className="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                                className="block w-full md:w-auto p-4 bg-gray text-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
                             >
-                                {event.title}
+                                <p className="text-center">{event.title}</p>
+                                <p className="mt-2 text-center">{event.startDate}</p>
                             </NavLink>
                         ))}
                     </div>
                     <NavLink to="/api/events">
-                        <button class="mt-4 bg-blue-hover hover:bg-gray-light text-white py-2 px-4 rounded transition-colors">
+                        <button className="mt-4 bg-blue-500 hover:bg-blue-400 text-white py-2 px-4 rounded transition-colors">
                             See More
                         </button>
                     </NavLink>
