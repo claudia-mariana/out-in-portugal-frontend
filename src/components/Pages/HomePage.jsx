@@ -83,7 +83,7 @@ function HomePage() {
                             <NavLink
                                 key={event._id}
                                 to={`/api/events/${event._id}`}
-                                className="block w-full md:w-auto p-4 bg-gray text-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                                className="block w-full md:w-auto p-4 bg-gray-light text-blue rounded-lg shadow-md hover:shadow-lg transition-shadow"
                             >
                                 <p className="text-center">{event.title}</p>
                                 <p className="mt-2 text-center">{event.startDate}</p>
