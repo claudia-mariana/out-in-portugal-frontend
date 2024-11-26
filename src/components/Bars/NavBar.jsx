@@ -10,12 +10,17 @@ function NavBar() {
 
     return (
         <div className="navbar">
-                <img src={logo} className="logo" alt="OutinPortugal Logo" />
-                <h3>OutInPortugal</h3>
+            <div className="left">
                 <NavLink to="/">
-                    Home
+                    <img src={logo} className="logo" alt="OutInPortugalLogo" />
+                </NavLink>                
+                
+                <NavLink to="/">
+                    <h3>OutInPortugal</h3>
                 </NavLink>
+            </div>
 
+            <div className="center">
                 <NavLink to="/about-page">
                     About
                 </NavLink>
@@ -30,7 +35,9 @@ function NavBar() {
                 <NavLink to="/api/events/create">
                     Create Event
                 </NavLink>
+            </div>
 
+            <div className="right">
                 <NavLink to="/auth/login">
                     Login
                 </NavLink>
@@ -49,7 +56,7 @@ function NavBar() {
                         <button onClick={logOutUser}>Logout</button>
                     </>
                 )}
-
+            </div>
         </div>
     )
 }

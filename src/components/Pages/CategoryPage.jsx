@@ -19,7 +19,7 @@ function CategoryPage() {
             <h1>{category} Activities</h1>
             <div>
                 {activities.map((activity) => (
-                    <div key={activity._id}>
+                    <div className="activity-card" key={activity._id}>
                         <Link to={`/api/activities/${activity._id}`}>
                         <h2>{activity.title}</h2>
                         </Link>
