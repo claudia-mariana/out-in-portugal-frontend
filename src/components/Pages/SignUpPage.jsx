@@ -22,7 +22,7 @@ function SignUpPage(props) {
     authService
       .signup(requestBody)
       .then(() => {
-        navigate("/login");
+        navigate("/auth/login");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

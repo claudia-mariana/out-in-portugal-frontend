@@ -23,6 +23,8 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* ACTIVITIES  */
+
 .activities-container {
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +36,7 @@ button:hover {
 .activity-card {
   background-color: white;
   width: 25vw;
-  height: 45vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -10,7 +10,7 @@ function CreateActivity() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
-  // const [events, setEvents] = useState({});
+  //const [events, setEvents] = useState({});
   const [imageUrl, setImageUrl] = useState("");
 
 
@@ -24,9 +24,9 @@ function CreateActivity() {
         setDescription("");
         setCategory("");
         setLocation("");
-        setEvents({});
+       // setEvents({});
         setImageUrl("");
-        navigate(`/api/activities`)
+        navigate("/api/activities")
       })
       .catch((error) => console.log(error));
   };
