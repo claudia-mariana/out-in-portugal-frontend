@@ -23,7 +23,6 @@ function App() {
   return (
     <div>
       <NavBar />
-      <h1>Out In Portugal</h1>
 
       <div>
         <Routes>

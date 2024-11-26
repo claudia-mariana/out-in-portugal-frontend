@@ -21,6 +21,8 @@ function ActivitiesListPage() {
 
   return (
     <>
+    <h1>Let's Explore!</h1>
+    <h2>{activities.length} Activities</h2>
       <Link to={"/api/activities/create"}>
         <button>+ Create Activity + </button>
       </Link>

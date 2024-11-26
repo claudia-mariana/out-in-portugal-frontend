@@ -10,7 +10,7 @@ div {
 }
 
 button {
-  background-color: #007BFF;
+  background-color: #28323d;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -20,7 +20,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0e1013;
 }
 
 /* ACTIVITIES  */
@@ -34,35 +34,55 @@ button:hover {
 }
 
 .activity-card {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
   background-color: white;
   width: 25vw;
   height: 50vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
   margin: 1vw 1vh;
   border-radius: 8%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Ensures padding and border are included in width and height */
-  overflow: hidden; 
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.activity-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .activity-card img {
   width: 100%;
-  height: auto; 
-  max-height: 60%;
+  height: auto;
+  max-height: 70%;
   border-radius: 5%;
   object-fit: cover;
   display: block;
+  flex-grow: 1;
+}
+
+.activity-card .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  padding: 1vh 0;
+  bottom: 0;
 }
 
 .activity-card h3 {
   color: #333;
-  margin-top: 2vh;
   margin: 1vw;
   text-align: center;
-  font-size: 1vw 1vh; 
+  font-size: 1vw 1vh;
+  position: relative;
 }
 
 .activity-card p {
@@ -70,13 +90,13 @@ button:hover {
   margin: 0.5vh 0;
   text-align: center;
   font-size: 1vw 1vh;
+  margin-bottom: 0;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
-
 
 .background-image {
   width: 60%;
@@ -94,10 +114,11 @@ a {
   left: 0;
   background-color: #333;
   width: 100%;
-  height: 10vh; 
+  height: 10vh;
   gap: 2%;
   color: #fff;
-  padding: 10px 20px; /* Adjusted for clarity */
+  padding: 10px 20px;
+  /* Adjusted for clarity */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
@@ -112,7 +133,7 @@ a {
 
 .navbar .center {
   justify-content: center;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .navbar .navlink {
