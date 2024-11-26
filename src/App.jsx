@@ -21,10 +21,10 @@ import "./index.css"
 
 function App() {
   return (
-    <div>
-      <NavBar />
+    <div className="flex flex-col min-h-screen">
+      <NavBar/>
 
-      <div>
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-page" element={<AboutPage />} />
@@ -51,10 +51,9 @@ function App() {
           <Route path="/auth/login" element={<LogInPage />} />
   
         </Routes>
+      </main>
 
-        <Footer />
-      </div>
-
+      <Footer />
     </div>
   )
 }
