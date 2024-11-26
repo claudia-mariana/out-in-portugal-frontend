@@ -45,7 +45,7 @@ function HomePage() {
 
     return (
         <>
-            <div>
+            <div class="text-yellow-300">
                 <img src={homepageBackground} className="background-image" alt=" background" />
 
                 <h1>Explore the amazing outdoor activities happening in Portugal</h1>

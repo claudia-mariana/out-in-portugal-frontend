@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import "./styles/index.css"
 import NavBar from './components/Bars/NavBar'
 import Footer from './components/Bars/Footer'
 import HomePage from './components/Pages/HomePage'
@@ -18,6 +16,8 @@ import SignUpPage from './components/Pages/SignUpPage'
 import LogInPage from './components/Pages/LogInPage'
 import CategoryPage from './components/Pages/CategoryPage'
 import ActivityCard from './components/Pages/ActivityCard'
+import "./index.css"
+
 
 function App() {
   return (
