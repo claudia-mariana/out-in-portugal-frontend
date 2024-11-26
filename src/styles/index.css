@@ -43,31 +43,31 @@ button:hover {
   border-radius: 8%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box; /* Ensures padding and border are included in width and height */
-  overflow: hidden; /* Just in case, this will help if any small overflow happens */
+  overflow: hidden; 
 }
 
 .activity-card img {
   width: 100%;
-  height: auto; /* Keeps aspect ratio */
+  height: auto; 
+  max-height: 60%;
   border-radius: 5%;
   object-fit: cover;
   display: block;
-  max-height: 60%; /* Ensures it doesn't consume too much space */
 }
 
 .activity-card h3 {
   color: #333;
   margin-top: 2vh;
-  margin: 1vw; /* Adjust spacing based on the design */
+  margin: 1vw;
   text-align: center;
-  font-size: 1vw 1vh; /* Responsive font size */
+  font-size: 1vw 1vh; 
 }
 
 .activity-card p {
   color: #333;
-  margin: 0.5vh 0; /* Adjust spacing based on the design */
+  margin: 0.5vh 0;
   text-align: center;
-  font-size: 1vw 1vh; /* Responsive font size */
+  font-size: 1vw 1vh;
 }
 
 a {
@@ -75,38 +75,68 @@ a {
   color: inherit;
 }
 
-/* nav bar  */
 
-
-.logo {
-  height: 6vh;
+.background-image {
+  width: 60%;
+  height: auto;
 }
+
+/* NAV BAR */
 
 .navbar {
   display: flex;
   align-items: center;
-  position: absolute; /* change to fixed if you want it always at the top */
+  justify-content: space-between;
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  background-color: #333; /* Darker shade for better contrast */
+  background-color: #333;
   width: 100%;
-  gap: 2%; /* Reduce gap for aesthetic balance */
+  height: 10vh; 
+  gap: 2%;
   color: #fff;
-  padding: 10px 20px; /* Adjust padding for balance */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  box-sizing: border-box; /* Ensures padding and border are included in width and height */
-  justify-content: space-between;
+  padding: 10px 20px; /* Adjusted for clarity */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.navbar .left,
+.navbar .center,
+.navbar .right {
+  display: flex;
+  align-items: center;
+  gap: 3%;
+}
+
+.navbar .center {
+  justify-content: center;
+  flex-grow: 1; 
 }
 
 .navbar .navlink {
-  margin: 5px;
+  margin: 0 10vh;
   color: white;
   text-decoration: none;
-  transition: color 0.3s; /* Smooth transition */
+  transition: color 0.3s;
 }
 
 .navbar .navlink:hover {
-  color: #ddd; /* Lighten on hover */
+  color: #ddd;
 }
 
+
+/* BUTTONS */
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 1vw 2vh;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5vw;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
