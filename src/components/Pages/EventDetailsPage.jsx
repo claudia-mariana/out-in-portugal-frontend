@@ -138,7 +138,7 @@ function EventDetailsPage() {
                             </div>
                             <div className="flex flex-row justify-center m-5">
                                 <NavLink to={`/api/events/edit/${eventId}`}>
-                                    <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg">
+                                    <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg  hover:text-yellow">
                                         Edit Event</button>
                                 </NavLink>
 

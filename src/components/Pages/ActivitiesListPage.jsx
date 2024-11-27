@@ -24,7 +24,7 @@ function ActivitiesListPage() {
     <h1 className="text-center my-10 text-5xl font-bold">Let's Explore!</h1>
     <div className="flex justify-center">
       <Link to={"/api/activities/create"}>
-        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:bg-[#0E1013]"> 
+        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md  hover:text-yellow"> 
           Create Activity </button>
       </Link>
       </div>

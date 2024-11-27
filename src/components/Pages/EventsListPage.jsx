@@ -25,7 +25,8 @@ function EventsListPage() {
         </h1>
       <div className="flex justify-center">
       <Link to={"/api/events/create"}>
-        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:bg-[#0E1013]"> Create Event </button>
+        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md  hover:text-yellow"> 
+          Create Event </button>
       </Link>
       </div>
       <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
