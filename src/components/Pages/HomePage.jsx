@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import eventsService from "../../services/events.service";
 import homepageBackground from "../images/homepageBackground.png"
-import aquatic from "../Images/aquatic.jpg"
+import aquatic from "../images/aquatic.jpg"
 import beach from "../images/beach.jpg";
 import forest from "../images/forest.jpg";
 import mountain from "../images/mountain.png";
