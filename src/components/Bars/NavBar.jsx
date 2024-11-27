@@ -21,6 +21,9 @@ function NavBar() {
             </div>
 
             <div class="flex space-x-6">
+                <NavLink to="/">
+                    Home
+                </NavLink>
                 <NavLink to="/about-page">
                     About
                 </NavLink>
