@@ -5,6 +5,8 @@ import eventsService from "../../services/events.service";
 
 const formatDate = (date) => new Date(date).toISOString().split('T')[0];
 
+const API_URL = "http://localhost:5005";
+
 function EditEvent() {
     const [title, setTitle] = useState("");
     const [activity, setActivity] = useState("");
@@ -21,7 +23,7 @@ function EditEvent() {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5005/api/activities')
+        fetch(`${API_URL}/api/activities`)
             .then(response => response.json())
             .then(data => setActivities(data))
             .catch(err => console.error('Error fetching activities:', err));
