@@ -89,7 +89,7 @@ function HomePage() {
                                     {format(new Date(event.startDate), 'MMM do, yyyy')}
                                 </p>
                                 <p className="mt-2 text-center">
-                                    {format(new Date(event.startDate), 'HH:mm')}
+                                    {format(new Date(event.startDate), 'HH:mm')}h
                                 </p>
                             </NavLink>
                         ))}
