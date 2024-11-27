@@ -45,16 +45,16 @@ function HomePage() {
 
     return (
         <>
-            <div class="relative">
-                <img src={homepageBackground} class='w-full h-60 object-cover object-top' alt="background" />
+            <div className="relative">
+                <img src={homepageBackground} className='w-full h-60 object-cover object-top' alt="background" />
 
-                <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl md:text-4xl text-center px-4">
+                <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl md:text-4xl text-center px-4">
                     Explore the amazing outdoor activities happening in Portugal
                 </h1>
             </div>
 
             <div>
-                <div class="mt-20 text-center">
+                <div className="mt-20 text-center">
                     <div className="flex flex-wrap justify-center items-center gap-8 px-4">
                         {categories.map((category) => (
                             <NavLink

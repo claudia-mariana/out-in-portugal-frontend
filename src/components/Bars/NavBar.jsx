@@ -9,18 +9,18 @@ function NavBar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
     return (
-        <div class="flex h-12 items-center justify-between p-4 bg-blue text-white shadow-md">
-            <div class="flex items-center hover:text-yellow ">
-                <NavLink to="/" class="flex items-center space-x-2">
-                    <img src={logo} alt="OutInPortugalLogo" class="h-12 w-auto" />
+        <div className="flex h-12 items-center justify-between p-4 bg-blue text-white shadow-md">
+            <div className="flex items-center hover:text-yellow ">
+                <NavLink to="/" className="flex items-center space-x-2">
+                    <img src={logo} alt="OutInPortugalLogo" className="h-12 w-auto" />
                 </NavLink>
 
-                <NavLink to="/" class="flex items-center space-x-2">
-                    <h3 class="text-lg font-semibold">OutInPortugal</h3>
+                <NavLink to="/" className="flex items-center space-x-2">
+                    <h3 className="text-lg font-semibold">OutInPortugal</h3>
                 </NavLink>
             </div>
 
-            <div class="flex space-x-6">
+            <div className="flex space-x-6">
                 <NavLink className=" hover:text-yellow" to="/">
                     Home
                 </NavLink>
@@ -53,14 +53,14 @@ function NavBar() {
                 {isLoggedIn && (
                     <>
                         <Link to="/api/events">
-                            <button class="hover:bg-blue-medium p-2 rounded">
+                            <button className="hover:bg-blue-medium p-2 rounded">
                                 {user.name}
                             </button>
                         </Link>
 
                         <button
                             onClick={logOutUser}
-                            class="hover:bg-blue-medium p-2 rounded"
+                            className="hover:bg-blue-medium p-2 rounded"
                         >
                             Log Out
                         </button>
