@@ -108,7 +108,8 @@ function ActivityDetailsPage() {
                   )}
                   <div className="flex mt-10 mb-20">
                     <NavLink to={"/api/events/create"}>
-                      <button className="bg-blue center text-white text-sm py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg"> + </button>
+                      <button className="bg-blue center text-white text-sm py-2 px-4 rounded-md shadow-md hover:transform  hover:text-yellow"> 
+                        Create Event </button>
                     </NavLink>
                   </div>
                 </div>
