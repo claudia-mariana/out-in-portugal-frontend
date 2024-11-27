@@ -44,7 +44,7 @@ function NavBar() {
                         <NavLink className=" hover:text-yellow" to="/auth/login">
                             Log In
                         </NavLink>
-                        <NavLink className=" hover:text-yellow" to="/auth/signup">
+                        <NavLink className="bg-blue-medium text-white px-4 py-2 rounded-md hover:text-yellow transition-colors" to="/auth/signup">
                             Sign Up
                         </NavLink>
                     </>
