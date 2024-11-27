@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import NavBar from './components/Bars/NavBar'
 import Footer from './components/Bars/Footer'
 import HomePage from './components/Pages/HomePage'
@@ -20,11 +20,27 @@ import "./index.css"
 
 
 function App() {
+
+  const location = useLocation();
+  
+  const getBackgroundColor = () => {
+    switch (location.pathname) {
+      case '/auth/login':
+      case '/auth/signup':
+        return 'bg-blue'; // Use a blue background for login and signup
+      case '/about-page':
+        return 'bg-blue-light'; // Use a soft yellow background for about page
+      default:
+        return 'bg-white'; // Default to white, or any other background for other pages
+    }
+  };
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar/>
 
-      <main className="flex-grow">
+      <main className={`flex-grow ${getBackgroundColor()}`}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-page" element={<AboutPage />} />
