@@ -10,7 +10,7 @@ function NavBar() {
 
     return (
         <div class="flex h-12 items-center justify-between p-4 bg-blue text-white shadow-md">
-            <div class="flex items-center">
+            <div class="flex items-center hover:text-yellow ">
                 <NavLink to="/" class="flex items-center space-x-2">
                     <img src={logo} alt="OutInPortugalLogo" class="h-12 w-auto" />
                 </NavLink>
@@ -21,19 +21,19 @@ function NavBar() {
             </div>
 
             <div class="flex space-x-6">
-                <NavLink to="/">
+                <NavLink className=" hover:text-yellow" to="/">
                     Home
                 </NavLink>
-                <NavLink to="/about-page">
+                <NavLink className=" hover:text-yellow" to="/about-page">
                     About
                 </NavLink>
-                <NavLink to="/api/activities">
+                <NavLink className=" hover:text-yellow" to="/api/activities">
                     Activities
                 </NavLink>
-                <NavLink to="/api/events">
+                <NavLink className=" hover:text-yellow" to="/api/events">
                     Events
                 </NavLink>
-                <NavLink to="/api/events/create">
+                <NavLink className=" hover:text-yellow" to="/api/events/create">
                     Create Event
                 </NavLink>
             </div>
@@ -41,10 +41,10 @@ function NavBar() {
             <div className="flex items-center space-x-4">
                 {!isLoggedIn && (
                     <>
-                        <NavLink to="/auth/login">
+                        <NavLink className=" hover:text-yellow" to="/auth/login">
                             Log In
                         </NavLink>
-                        <NavLink to="/auth/signup">
+                        <NavLink className=" hover:text-yellow" to="/auth/signup">
                             Sign Up
                         </NavLink>
                     </>
@@ -53,14 +53,14 @@ function NavBar() {
                 {isLoggedIn && (
                     <>
                         <Link to="/api/events">
-                            <button class="hover:bg-blue-hover p-2 rounded">
+                            <button class="hover:bg-blue-medium p-2 rounded">
                                 {user.name}
                             </button>
                         </Link>
 
                         <button
                             onClick={logOutUser}
-                            class="hover:bg-blue-hover p-2 rounded"
+                            class="hover:bg-blue-medium p-2 rounded"
                         >
                             Log Out
                         </button>
