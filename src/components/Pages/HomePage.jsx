@@ -46,7 +46,7 @@ function HomePage() {
             <div className="relative">
                 <img src={homepageBackground} className='w-full h-80 object-cover object-top' alt="background" />
 
-                <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl md:text-4xl text-center px-4">
+                <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-extrabold text-4xl md:text-4xl text-center px-4">
                     Explore the amazing outdoor activities happening in Portugal
                 </h1>
             </div>
@@ -76,12 +76,13 @@ function HomePage() {
 
                 <div className="mt-20 flex flex-col items-center">
                     <h2 className="text-xl font-semibold mb-6 text-center text-blue">Next events:</h2>
-                    <div className="flex flex-col justify-center w-full md:w-1/3 gap-4 px-4">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 w-full md:w-2/3">
                         {events.map((event) => (
                             <NavLink
                                 key={event._id}
                                 to={`/api/events/${event._id}`}
-                                className="block w-full md:w-auto p-4 bg-gray-light text-blue  hover:text-opacity-70 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                                className="block w-full p-4 bg-gray-light text-blue hover:text-opacity-70 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                             >
                                 <p className="text-center font-bold">{event.title}</p>
                                 <p className="mt-2 text-center">
@@ -89,10 +90,11 @@ function HomePage() {
                                 </p>
                                 <p className="mt-2 text-center">
                                     {format(new Date(event.startDate), 'HH:mm')}
-                                </p>                                    
+                                </p>
                             </NavLink>
                         ))}
                     </div>
+
                     <NavLink to="/api/events">
                         <button className="mt-4 mb-4 bg-blue-medium hover:text-yellow text-white py-2 px-4 rounded transition-colors">
                             See More
