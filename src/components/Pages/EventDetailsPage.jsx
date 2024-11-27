@@ -53,7 +53,6 @@ function EventDetailsPage() {
 
                             <button
                                 onClick={() => {
-                                    console.log("Button clicked");
                                     deleteEvent();
                                 }}
                                 className="absolute top-0 right-0 m-[2vw] cursor-pointer pointer-events-auto z-50"
@@ -100,7 +99,7 @@ function EventDetailsPage() {
                                     <div className="whitespace-no-wrap my-7">
                                         <p className="text-black text-base font-semibold inline-block ml-2">
                                             Please bring with you the following equipment: </p>
-                                        <p className="text-black text-base ml-2 inline-block">
+                                        <p className="text-black text-base ml-2">
                                             {event.equipment}</p>
                                     </div>
 
@@ -118,7 +117,7 @@ function EventDetailsPage() {
                                         <p className="text-black text-base ml-2 ">
                                             {format(new Date(event.startDate), 'MMM do, yyyy')}</p>
                                         <p className="text-black text-base ml-2 ">
-                                            {format(new Date(event.startDate), 'HH:mm')}</p>
+                                            {format(new Date(event.startDate), 'HH:mm')}h</p>
                                     </div>
                                     <div className="whitespace-no-wrap my-7">
                                         <p className="text-black text-base font-semibold ml-2">
@@ -126,7 +125,7 @@ function EventDetailsPage() {
                                         <p className="text-black text-base ml-2">
                                             {format(new Date(event.endDate), 'MMM do, yyyy')} </p>
                                         <p className="text-black text-base ml-2">
-                                            {format(new Date(event.endDate), 'HH:mm')} </p>
+                                            {format(new Date(event.endDate), 'HH:mm')}h </p>
                                     </div>
                                     <div className="whitespace-no-wrap my-7">
                                         <p className="text-black text-base font-semibold ml-2">
@@ -137,7 +136,7 @@ function EventDetailsPage() {
 
                                 </div>
                             </div>
-                            <div className="flex flex-row m-5">
+                            <div className="flex flex-row justify-center m-5">
                                 <NavLink to={`/api/events/edit/${eventId}`}>
                                     <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg">
                                         Edit Event</button>

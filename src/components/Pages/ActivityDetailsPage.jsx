@@ -36,7 +36,7 @@ function ActivityDetailsPage() {
       {activity ? (
         <>
           <div className="flex justify-center">
-            <div className="flex flex-col items-center bg-white w-[70vw] m-[2vw]">
+            <div className="flex flex-col items-center bg-white w-[70vw] m-[2vw] shadow-md">
               <NavLink to={`/api/activities/activityCard`} className="w-full">
                 <div className="relative">
                   <img
@@ -108,7 +108,7 @@ function ActivityDetailsPage() {
                   )}
                   <div className="flex mt-10 mb-20">
                     <NavLink to={"/api/events/create"}>
-                      <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg"> Create Event </button>
+                      <button className="bg-blue center text-white text-sm py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg"> + </button>
                     </NavLink>
                   </div>
                 </div>
