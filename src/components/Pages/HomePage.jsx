@@ -46,7 +46,7 @@ function HomePage() {
     return (
         <>
             <div className="relative">
-                <img src={homepageBackground} className='w-full h-60 object-cover object-top' alt="background" />
+                <img src={homepageBackground} className='w-full h-80 object-cover object-top' alt="background" />
 
                 <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-2xl md:text-4xl text-center px-4">
                     Explore the amazing outdoor activities happening in Portugal
@@ -91,7 +91,7 @@ function HomePage() {
                         ))}
                     </div>
                     <NavLink to="/api/events">
-                        <button className="mt-4 bg-blue-medium hover:text-yellow text-white py-2 px-4 rounded transition-colors">
+                        <button className="mt-4 mb-4 bg-blue-medium hover:text-yellow text-white py-2 px-4 rounded transition-colors">
                             See More
                         </button>
                     </NavLink>
