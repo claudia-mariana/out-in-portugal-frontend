@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import activitiesService from "../../services/activities.service";
 import eventsService from "../../services/events.service";
 import homepageBackground from "../images/homepageBackground.png"
-import ActivityCard from "./ActivityCard";
-import EventCard from "../Functionalities/EventCard";
 import aquatic from "../Images/aquatic.jpg"
 import beach from "../images/beach.jpg";
 import forest from "../images/forest.jpg";
 import mountain from "../images/mountain.png";
 import urban from "../images/urban.jpg";
 import other from "../images/other.png";
+import { format } from 'date-fns';
 
 const categories = ["Aquatic", "Mountain", "Forest", "Beach", "Urban", "Other"];
 
@@ -85,8 +83,13 @@ function HomePage() {
                                 to={`/api/events/${event._id}`}
                                 className="block w-full md:w-auto p-4 bg-gray-light text-blue  hover:text-opacity-70 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                             >
-                                <p className="text-center">{event.title}</p>
-                                <p className="mt-2 text-center">{event.startDate}</p>
+                                <p className="text-center font-bold">{event.title}</p>
+                                <p className="mt-2 text-center">
+                                    {format(new Date(event.startDate), 'MMM do, yyyy')}
+                                </p>
+                                <p className="mt-2 text-center">
+                                    {format(new Date(event.startDate), 'HH:mm')}
+                                </p>                                    
                             </NavLink>
                         ))}
                     </div>
