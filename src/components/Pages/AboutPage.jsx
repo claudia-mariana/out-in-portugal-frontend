@@ -1,6 +1,6 @@
 function AboutPage() {
     return (
-      <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <div className="max-w-3xl mx-auto mt-10 mb-6 p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-center text-blue-medium mb-8">
           Welcome to OutInPortugal – your go-to platform for discovering and sharing outdoor activities across Portugal!
         </h1>

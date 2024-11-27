@@ -53,14 +53,14 @@ function NavBar() {
                 {isLoggedIn && (
                     <>
                         <Link to="/api/events">
-                            <button className="hover:bg-blue-medium p-2 rounded">
+                            <button className="hover:text-yellow p-2 rounded">
                                 {user.name}
                             </button>
                         </Link>
 
                         <button
                             onClick={logOutUser}
-                            className="hover:bg-blue-medium p-2 rounded"
+                            className="bg-blue-medium text-white px-4 py-2 rounded-md hover:text-yellow transition-colors"
                         >
                             Log Out
                         </button>
