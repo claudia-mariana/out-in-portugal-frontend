@@ -20,14 +20,17 @@ function EventsListPage() {
 
   return (
     <div>
-
+      <h1 className="text-center my-10 text-5xl font-bold">Mark Your Calendar</h1>
+      <div className="flex justify-center">
       <Link to={"/api/events/create"}>
-        <button>+ Create Event + </button>
+        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:bg-[#0E1013]"> Create Event </button>
       </Link>
-
+      </div>
+      <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
       {events.map((event) => (
         <EventCard key={event._id} {...event} />
       ))}
+      </div>
     </div>
   );
 }
