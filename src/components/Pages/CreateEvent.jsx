@@ -3,16 +3,13 @@ import eventsService from "../../services/events.service";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-const API_URL = "http://localhost:5005";
-
 function CreateEvent() {
    
     const [activities, setActivities] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-      fetch(`${API_URL}/api/activities`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
         .then(response => response.json())
         .then(data => setActivities(data))
         .catch(err => console.error('Error fetching activities:', err));
