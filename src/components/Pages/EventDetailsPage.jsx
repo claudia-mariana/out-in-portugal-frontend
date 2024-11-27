@@ -1,6 +1,7 @@
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import eventsService from "../../services/events.service";
 import { useState, useEffect } from "react";
+import { format } from 'date-fns';
 
 function EventDetailsPage() {
 
