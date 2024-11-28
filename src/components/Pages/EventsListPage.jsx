@@ -13,7 +13,6 @@ function EventsListPage() {
       .catch((error) => console.log(error));
   };
 
-
   useEffect(() => {
     getAllEvents();
   }, []);

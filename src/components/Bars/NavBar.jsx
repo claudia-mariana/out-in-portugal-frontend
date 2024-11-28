@@ -21,12 +21,9 @@ function NavBar() {
             </div>
 
             <div className="flex space-x-6">
-                <NavLink className=" hover:text-yellow" to="/">
+                {/* <NavLink className=" hover:text-yellow" to="/">
                     Home
-                </NavLink>
-                <NavLink className=" hover:text-yellow" to="/about-page">
-                    About
-                </NavLink>
+                </NavLink> */}
                 <NavLink className=" hover:text-yellow" to="/api/activities">
                     Activities
                 </NavLink>
@@ -35,6 +32,9 @@ function NavBar() {
                 </NavLink>
                 <NavLink className=" hover:text-yellow" to="/api/events/create">
                     Create Event
+                </NavLink>
+                <NavLink className=" hover:text-yellow" to="/about-page">
+                    About
                 </NavLink>
             </div>
 
