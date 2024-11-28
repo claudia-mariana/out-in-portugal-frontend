@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import eventsService from "../../services/events.service";
 
-// Helping functions
 const formatDate = (date) => new Date(date).toISOString().split('T')[0];
 const formatTime = (date) => new Date(date).toISOString().split('T')[1].substring(0,5);
 
@@ -54,9 +53,26 @@ function EditEvent() {
                 setDuration(oneEvent.duration);
                 setEquipment(oneEvent.equipment);
                 setPrice(oneEvent.price);
+                setIsLoading(false);
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+              console.log(error);
+              setIsLoading(false);
+            });
     }, [eventId]);
+
+    useEffect(() => {
+      const token = localStorage.getItem("authToken");
+  
+      if (!token && !redirecting) {
+        setRedirecting(true);
+        setTimeout(() => {
+          navigate("/auth/login", { replace: true });
+        }, 4000);
+        setIsAuthenticated(false);
+      }
+    }, [navigate, redirecting]);
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault();

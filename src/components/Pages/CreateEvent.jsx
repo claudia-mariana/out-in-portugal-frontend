@@ -3,54 +3,54 @@ import { useNavigate } from "react-router-dom";
 import eventsService from "../../services/events.service";
 
 function CreateEvent() {
-  const [activities, setActivities] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [redirecting, setRedirecting] = useState(false); // To track redirection state
-  const [isLoading, setIsLoading] = useState(true); // Loading state for activities and authentication check
-  const navigate = useNavigate();
+    const [activities, setActivities] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [redirecting, setRedirecting] = useState(false); // To track redirection state
+    const [isLoading, setIsLoading] = useState(true); // Loading state for activities and authentication check
+    const navigate = useNavigate();
 
-  // Fetch activities once component is mounted
-  useEffect(() => {
-    // Fetch activities
-    fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
-      .then(response => response.json())
-      .then(data => {
-        setActivities(data);
-        setIsLoading(false); // Set loading to false once activities are fetched
-      })
-      .catch(err => {
-        console.error("Error fetching activities:", err);
-        setIsLoading(false); // Also stop loading if there's an error
-      });
-  }, []);
+    // Fetch activities once component is mounted
+    useEffect(() => {
+        // Fetch activities
+        fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
+            .then(response => response.json())
+            .then(data => {
+                setActivities(data);
+                setIsLoading(false); // Set loading to false once activities are fetched
+            })
+            .catch(err => {
+                console.error("Error fetching activities:", err);
+                setIsLoading(false); // Also stop loading if there's an error
+            });
+    }, []);
 
-  // AUTH VERIFICATION AND REDIRECTION
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    // AUTH VERIFICATION AND REDIRECTION
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
 
-    if (!token && !redirecting) {
-      setRedirecting(true); // Set redirection state to avoid multiple redirects
-      setTimeout(() => {
-        navigate("/auth/login", { replace: true }); // Redirect after a short delay
-      }, 2000);
-      setIsAuthenticated(false);
-    }
-  }, [navigate, redirecting]);
+        if (!token && !redirecting) {
+            setRedirecting(true); // Set redirection state to avoid multiple redirects
+            setTimeout(() => {
+                navigate("/auth/login", { replace: true }); // Redirect after a short delay
+            }, 4000);
+            setIsAuthenticated(false);
+        }
+    }, [navigate, redirecting]);
 
 
-  const [title, setTitle] = useState("");
-  const [activity, setActivity] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [startTime, setStartTime] = useState(""); 
-  const [endDate, setEndDate] = useState("");
-  const [endTime, setEndTime] = useState("");  
-  const [description, setDescription] = useState("");
-  const [organization, setOrganization] = useState("");
-  const [meetingPoint, setMeetingPoint] = useState("");
-  const [targetAudience, setTargetAudience] = useState("");
-  const [duration, setDuration] = useState("");
-  const [equipment, setEquipment] = useState("");
-  const [price, setPrice] = useState("");
+    const [title, setTitle] = useState("");
+    const [activity, setActivity] = useState("");
+    const [startDate, setStartDate] = useState("");
+    const [startTime, setStartTime] = useState("");
+    const [endDate, setEndDate] = useState("");
+    const [endTime, setEndTime] = useState("");
+    const [description, setDescription] = useState("");
+    const [organization, setOrganization] = useState("");
+    const [meetingPoint, setMeetingPoint] = useState("");
+    const [targetAudience, setTargetAudience] = useState("");
+    const [duration, setDuration] = useState("");
+    const [equipment, setEquipment] = useState("");
+    const [price, setPrice] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -58,18 +58,18 @@ function CreateEvent() {
         const startDateTime = `${startDate}T${startTime}`;
         const endDateTime = `${endDate}T${endTime}`;
 
-        const requestBody = { 
-            title, 
-            activity, 
-            startDate: startDateTime, 
-            endDate: endDateTime, 
-            description, 
-            organization, 
-            meetingPoint, 
-            targetAudience, 
-            duration, 
-            equipment, 
-            price 
+        const requestBody = {
+            title,
+            activity,
+            startDate: startDateTime,
+            endDate: endDateTime,
+            description,
+            organization,
+            meetingPoint,
+            targetAudience,
+            duration,
+            equipment,
+            price
         };
 
         eventsService.createEvent(requestBody)
@@ -77,9 +77,9 @@ function CreateEvent() {
                 setTitle("");
                 setActivity("");
                 setStartDate("");
-                setStartTime("");  
+                setStartTime("");
                 setEndDate("");
-                setEndTime("");    
+                setEndTime("");
                 setDescription("");
                 setOrganization("");
                 setMeetingPoint("");
@@ -92,13 +92,30 @@ function CreateEvent() {
             .catch((error) => console.log(error));
     };
 
+    // If still loading, show the loading state
+    if (isLoading) {
+        return <div className="animate-spin">Loading...</div>; // You can replace this with a spinner or other loading UI
+    }
+
+    // Early return if not authenticated
+    if (!isAuthenticated) {
+        return (
+            <div className="max-w-lg mx-auto mt-10 bg-blue p-6 rounded-lg shadow-md">
+                <h3 className="text-2xl font-bold mb-6 text-center text-yellow">
+                    You need to log in to create an event.
+                    <br></br>Redirecting...
+                </h3>
+            </div>
+        );
+    }
+
     return (
         <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-bold mb-6 text-center text-blue-medium">Create Event</h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-blue">Title:</label>
+                    <label className="block text-blue">(*) Title:</label>
                     <input
                         type="text"
                         name="title"
@@ -109,7 +126,7 @@ function CreateEvent() {
                 </div>
 
                 <div>
-                    <label className="block text-blue">Activity:</label>
+                    <label className="block text-blue">(*) Activity:</label>
                     <select
                         name="activityId"
                         value={activity}
@@ -127,46 +144,50 @@ function CreateEvent() {
                 </div>
 
                 <div>
-                    <label className="block text-blue">Start Date:</label>
+                    <label className="block text-blue">(*) Start Date:</label>
                     <input
                         type="date"
                         name="startDate"
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
+                        required
                     />
                 </div>
 
                 <div>
-                    <label className="block text-blue">Start Time:</label>
+                    <label className="block text-blue">(*) Start Time:</label>
                     <input
                         type="time"
                         name="startTime"
                         value={startTime}
                         onChange={(e) => setStartTime(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
+                        required
                     />
                 </div>
 
                 <div>
-                    <label className="block text-blue">End Date:</label>
+                    <label className="block text-blue">(*) End Date:</label>
                     <input
                         type="date"
                         name="endDate"
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
+                        required
                     />
                 </div>
 
                 <div>
-                    <label className="block text-blue">End Time:</label>
+                    <label className="block text-blue">(*) End Time:</label>
                     <input
                         type="time"
                         name="endTime"
                         value={endTime}
                         onChange={(e) => setEndTime(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
+                        required
                     />
                 </div>
 
@@ -193,13 +214,14 @@ function CreateEvent() {
                 </div>
 
                 <div>
-                    <label className="block text-blue">Meeting Point:</label>
+                    <label className="block text-blue">(*) Meeting Point:</label>
                     <input
                         type="text"
                         name="meetingPoint"
                         value={meetingPoint}
                         onChange={(e) => setMeetingPoint(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
+                        required
                     />
                 </div>
 
@@ -253,7 +275,7 @@ function CreateEvent() {
                 </div>
 
                 <div className="flex justify-center">
-                    <button 
+                    <button
                         type="submit"
                         className="bg-blue-medium text-white py-2 px-4 rounded-md hover:text-yellow transition-colors"
                     >
