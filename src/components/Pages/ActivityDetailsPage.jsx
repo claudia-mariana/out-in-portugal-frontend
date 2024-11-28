@@ -59,7 +59,7 @@ function ActivityDetailsPage() {
                     {activity.category}
                   </span>
 
-                  <div className="whitespace-no-wrap my-5">
+                  {/* <div className="whitespace-no-wrap my-5">
                     <p className="text-black text-base font-semibold m-2">
                       Location:
                     </p>
@@ -67,7 +67,7 @@ function ActivityDetailsPage() {
                     <p className="text-black text-base m-2 inline-block">
                       {activity.location}
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className="whitespace-no-wrap my-5">
                     <p className="text-black text-base font-semibold m-2">

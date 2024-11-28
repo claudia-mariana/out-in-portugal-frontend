@@ -13,11 +13,15 @@ function EventsListPage() {
       .catch((error) => console.log(error));
   };
 
-
-
   useEffect(() => {
     getAllEvents();
   }, []);
+
+    // Handle deletion of an event
+    const handleDeleteEvent = (deletedId) => {
+      // Filter out the deleted event from state
+      setEvents((prevEvents) => prevEvents.filter(event => event._id !== deletedId));
+    };
 
   return (
     <div>
@@ -33,7 +37,7 @@ function EventsListPage() {
       <div className="events-container flex flex-wrap justify-center items-center w-full my-10">
       {events.toReversed().map((event) => (
         <div key={event._id}>
-          <EventCard {...event} />
+          <EventCard {...event} onDelete={handleDeleteEvent} />
         </div>
       ))}
       </div>

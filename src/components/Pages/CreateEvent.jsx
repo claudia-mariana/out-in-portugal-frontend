@@ -156,17 +156,19 @@ function CreateEvent() {
                         </select>
                     </div>
 
-                    <div>
-                        <label className="block text-blue">(*) Start Date:</label>
-                        <input
-                            type="date"
-                            name="startDate"
-                            value={startDate}
-                            onChange={(e) => setStartDate(e.target.value)}
-                            className="w-full p-2 border border-gray-light rounded-md"
-                            required
-                        />
-                    </div>
+                <div>
+                    <label className="block text-blue">(*) Start Date:</label>
+                    <input
+                        type="date"
+                        name="startDate"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        className="w-full p-2 border border-gray-light rounded-md"
+                        required
+                        min="1000-01-01"
+                        max="9999-12-31"
+                    />
+                </div>
 
                     <div>
                         <label className="block text-blue">(*) Start Time:</label>
@@ -180,17 +182,19 @@ function CreateEvent() {
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-blue">(*) End Date:</label>
-                        <input
-                            type="date"
-                            name="endDate"
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
-                            className="w-full p-2 border border-gray-light rounded-md"
-                            required
-                        />
-                    </div>
+                <div>
+                    <label className="block text-blue">(*) End Date:</label>
+                    <input
+                        type="date"
+                        name="endDate"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        className="w-full p-2 border border-gray-light rounded-md"
+                        required
+                        min="1000-01-01"
+                        max="9999-12-31"
+                    />
+                </div>
 
                     <div>
                         <label className="block text-blue">(*) End Time:</label>
@@ -238,21 +242,21 @@ function CreateEvent() {
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-blue">Target Audience:</label>
-                        <select
-                            required
-                            value={targetAudience}
-                            onChange={(e) => setTargetAudience(e.target.value)}
-                            className="w-full p-2 border border-gray-light rounded-md"
-                        >
-                            <option hidden defaultValue value="">Select an option</option>
-                            <option value="Children">Children</option>
-                            <option value="Adults">Adults</option>
-                            <option value="Seniors">Seniors</option>
-                            <option value="Everyone">Everyone</option>
-                        </select>
-                    </div>
+                <div>
+                    <label className="block text-blue">(*) Target Audience:</label>
+                    <select
+                        required
+                        value={targetAudience}
+                        onChange={(e) => setTargetAudience(e.target.value)}
+                        className="w-full p-2 border border-gray-light rounded-md"
+                    >
+                        <option hidden defaultValue value="">Select an option</option>
+                        <option value="Children">Children</option>
+                        <option value="Adults">Adults</option>
+                        <option value="Seniors">Seniors</option>
+                        <option value="Everyone">Everyone</option>
+                    </select>
+                </div>
 
                     <div>
                         <label className="block text-blue">Duration:</label>

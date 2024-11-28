@@ -11,21 +11,27 @@ function CreateActivity() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   //const [events, setEvents] = useState({});
   const [imageUrl, setImageUrl] = useState("");
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description, category, location, imageUrl };
+    const requestBody = { 
+      title, 
+      description, 
+      category, 
+      // location, 
+      imageUrl 
+    };
 
     activitiesService.createActivity(requestBody)
       .then(() => {
         setTitle("");
         setDescription("");
         setCategory("");
-        setLocation("");
+        // setLocation("");
         // setEvents({});
         setImageUrl("");
         navigate("/api/activities")
@@ -85,7 +91,7 @@ function CreateActivity() {
             </select>
           </div>
 
-        <div>
+        {/* <div>
           <label className="block text-blue-medium">(*) Location:</label>
           <input
             type="text"
@@ -95,7 +101,7 @@ function CreateActivity() {
             className="w-full p-2 border border-gray-light rounded-md"
             required
           />
-        </div>
+        </div> */}
 
         <div>
           <label className="block text-blue-medium">(*) Image URL:</label>
