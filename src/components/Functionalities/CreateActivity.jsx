@@ -39,13 +39,14 @@ function CreateActivity() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-blue-medium">Title:</label>
+          <label className="block text-blue-medium">(*) Title:</label>
           <input
             type="text"
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full p-2 border border-gray-light rounded-md"
+            required
           />
         </div>
 
@@ -78,24 +79,26 @@ function CreateActivity() {
         </div>
 
         <div>
-          <label className="block text-blue-medium">Location:</label>
+          <label className="block text-blue-medium">(*) Location:</label>
           <input
             type="text"
             name="location"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="w-full p-2 border border-gray-light rounded-md"
+            required
           />
         </div>
 
         <div>
-          <label className="block text-blue-medium">Image URL:</label>
+          <label className="block text-blue-medium">(*) Image URL:</label>
           <input
             type="text" // Corrected type from "image URL" to "text"
             name="image URL"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
             className="w-full p-2 border border-gray-light rounded-md"
+            required
           />
         </div>
 
