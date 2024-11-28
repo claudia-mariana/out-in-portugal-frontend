@@ -41,7 +41,9 @@ function CreateEvent() {
   const [title, setTitle] = useState("");
   const [activity, setActivity] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [startTime, setStartTime] = useState(""); 
   const [endDate, setEndDate] = useState("");
+  const [endTime, setEndTime] = useState("");  
   const [description, setDescription] = useState("");
   const [organization, setOrganization] = useState("");
   const [meetingPoint, setMeetingPoint] = useState("");
@@ -53,7 +55,6 @@ function CreateEvent() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Combine date and time into a single datetime
         const startDateTime = `${startDate}T${startTime}`;
         const endDateTime = `${endDate}T${endTime}`;
 
@@ -76,9 +77,9 @@ function CreateEvent() {
                 setTitle("");
                 setActivity("");
                 setStartDate("");
-                setStartTime("");  // Reset time inputs
+                setStartTime("");  
                 setEndDate("");
-                setEndTime("");    // Reset time inputs
+                setEndTime("");    
                 setDescription("");
                 setOrganization("");
                 setMeetingPoint("");
