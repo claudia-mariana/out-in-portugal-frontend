@@ -43,54 +43,65 @@ function EventCard({ _id, title, meetingPoint, startDate, endDate, onDelete }) {
 
   return (
     <div>
-      <div className="flex-grow">
-        <div className="relative m-3 w-full h-[30vh]">
-          <NavLink to={`/api/events/${_id}`}
-            className="block p-2 bg-gray-light text-blue  hover:text-opacity-70 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <NavLink to={`/api/events/${_id}`} className="block ">
+        <div className="event-card flex flex-col items-center relative bg-gray-light w-[30vw] h-[30vh] m-[1vw] rounded-md shadow-md overflow-hidden p-0 cursor-pointer transition-shadow hover:transform hover:shadow-lg">
 
-            <h3 className="text-black text-xl font-semibold mb-5 overflow-hidden text-ellipsis whitespace-normal max-h-[1.5em]">
-              {title}</h3>
+          <div className="content relative flex flex-col justify-end w-full pb-2 bottom-0">
+            <h3 className="text-black text-xl font-semibold m-2">
+              {title}
+            </h3>
 
-            <div className="whitespace-normal my-5">
+           <div>
               <p className="text-black text-base font-semibold ml-2">
                 Meeting Point:
               </p>
               <MapPinIcon className=" w-[1vw] text-blue inline-block ml-2" />
-              <p className="text-black text-base m-2 overflow-hidden text-ellipsis whitespace-normal">
+              <p className="text-black text-base m-2 mb-5">
                 {meetingPoint}
               </p>
-            </div>
-            <div className="whitespace-normal my-3">
+              </div>
+            
+            <div>
               <p className="text-black text-base font-semibold ml-2 inline-block">
-                Start Date: </p>
+                Start Date:
+              </p>
               <p className="text-black text-base ml-2 inline-block">
                 {format(new Date(startDate), 'MMM do, yyyy')},</p>
               <p className="text-black text-base ml-2 inline-block">
                 {format(new Date(startDate), 'HH:mm')}h</p>
-            </div>
-            <div className="whitespace-no-wrap my-3">
+                </div>
+            <div>
               <p className="text-black text-base font-semibold ml-2 inline-block">
-                End Date: </p>
+                End Date:
+              </p>
               <p className="text-black text-base ml-2 inline-block">
                 {format(new Date(endDate), 'MMM do, yyyy')}, </p>
               <p className="text-black text-base ml-2 inline-block">
-                {format(new Date(endDate), 'HH:mm')}h </p>
-            </div>
-
-          </NavLink>
-          {isAuthenticated && (
-            <button
-              onClick={deleteEvent}
-              className="absolute top-0 right-0 m-[1vw] cursor-pointer pointer-events-auto z-50"
-            >
-              <TrashIcon className="w-[1vw]" />
-            </button>
-          )}
-
+                {format(new Date(endDate), 'HH:mm')}h
+              </p>
+              </div>
+          </div>
+          {/* Only show the delete button if authenticated */}
+      {
+        isAuthenticated && (
+          <button
+            onClick={deleteEvent}
+            className="absolute top-0 right-0 m-[1vw] cursor-pointer pointer-events-auto z-50"
+          >
+            <TrashIcon className="w-[1vw]" />
+          </button>
+        )
+      }
 
         </div>
-      </div>
-    </div>
+
+      </NavLink >
+
+
+      
+
+    </div >
+
   );
 }
 
