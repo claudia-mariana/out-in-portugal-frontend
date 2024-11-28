@@ -226,7 +226,7 @@ function CreateEvent() {
                 </div>
 
                 <div>
-                    <label className="block text-blue">Target Audience:</label>
+                    <label className="block text-blue">(*) Target Audience:</label>
                     <select
                         required
                         value={targetAudience}

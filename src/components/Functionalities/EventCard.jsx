@@ -10,7 +10,7 @@ const formatDate = (dateString) => {
 }
 
 
-function EventCard(event) {
+function EventCard({ _id, title, meetingPoint, startDate, endDate, onDelete }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -33,8 +33,11 @@ function EventCard(event) {
     );;
     }
 
-    eventsService.deleteEvent(event._id)
-      .then(() => navigate("/api/events"))
+    eventsService.deleteEvent(_id)
+      .then(() => {
+        onDelete(_id);
+        navigate("/api/events")
+      })
       .catch((err) => console.log(err));
   };
 
@@ -42,11 +45,11 @@ function EventCard(event) {
     <div>
       <div className="flex-grow">
         <div className="relative m-3 w-full h-[30vh]">
-          <NavLink to={`/api/events/${event._id}`}
+          <NavLink to={`/api/events/${_id}`}
             className="block p-2 bg-gray-light text-blue  hover:text-opacity-70 rounded-lg shadow-md hover:shadow-lg transition-shadow">
 
             <h3 className="text-black text-xl font-semibold mb-5 overflow-hidden text-ellipsis whitespace-normal max-h-[1.5em]">
-              {event.title}</h3>
+              {title}</h3>
 
             <div className="whitespace-normal my-5">
               <p className="text-black text-base font-semibold ml-2">
@@ -54,24 +57,24 @@ function EventCard(event) {
               </p>
               <MapPinIcon className=" w-[1vw] text-blue inline-block ml-2" />
               <p className="text-black text-base m-2 overflow-hidden text-ellipsis whitespace-normal">
-                {event.meetingPoint}
+                {meetingPoint}
               </p>
             </div>
             <div className="whitespace-normal my-3">
               <p className="text-black text-base font-semibold ml-2 inline-block">
                 Start Date: </p>
               <p className="text-black text-base ml-2 inline-block">
-                {format(new Date(event.startDate), 'MMM do, yyyy')},</p>
+                {format(new Date(startDate), 'MMM do, yyyy')},</p>
               <p className="text-black text-base ml-2 inline-block">
-                {format(new Date(event.startDate), 'HH:mm')}h</p>
+                {format(new Date(startDate), 'HH:mm')}h</p>
             </div>
             <div className="whitespace-no-wrap my-3">
               <p className="text-black text-base font-semibold ml-2 inline-block">
                 End Date: </p>
               <p className="text-black text-base ml-2 inline-block">
-                {format(new Date(event.endDate), 'MMM do, yyyy')}, </p>
+                {format(new Date(endDate), 'MMM do, yyyy')}, </p>
               <p className="text-black text-base ml-2 inline-block">
-                {format(new Date(event.endDate), 'HH:mm')}h </p>
+                {format(new Date(endDate), 'HH:mm')}h </p>
             </div>
 
           </NavLink>

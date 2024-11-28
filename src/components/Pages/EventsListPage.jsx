@@ -18,6 +18,12 @@ function EventsListPage() {
     getAllEvents();
   }, []);
 
+    // Handle deletion of an event
+    const handleDeleteEvent = (deletedId) => {
+      // Filter out the deleted event from state
+      setEvents((prevEvents) => prevEvents.filter(event => event._id !== deletedId));
+    };
+
   return (
     <div>
       <h1 className="text-center my-10 text-5xl font-bold">
@@ -33,7 +39,7 @@ function EventsListPage() {
       
       {events.toReversed().map((event) => (
         <div key={event._id} className="w-full sm:w-[calc(33.33%-1.5rem)] md:w-[calc(25%-1.5rem)]">
-          <EventCard {...event} />
+          <EventCard {...event} onDelete={handleDeleteEvent} />
         </div>
       ))}
       </div>
