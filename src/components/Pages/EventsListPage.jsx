@@ -14,6 +14,7 @@ function EventsListPage() {
   };
 
 
+
   useEffect(() => {
     getAllEvents();
   }, []);

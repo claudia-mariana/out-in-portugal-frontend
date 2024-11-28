@@ -118,7 +118,10 @@ function ActivityDetailsPage() {
           </div>
         </>
       ) : (
-        <h1>Loading...</h1>
+        <div className="flex justify-center items-center h-screen">
+            <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+            <p className="ml-4">Loading...</p>
+          </div>
       )}
 
 

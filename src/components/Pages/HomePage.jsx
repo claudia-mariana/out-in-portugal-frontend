@@ -102,7 +102,7 @@ function HomePage() {
                     </div>
 
                     <NavLink to="/api/events">
-                        <button className="mt-4 mb-4 bg-blue-medium hover:text-yellow text-white py-2 px-4 rounded transition-colors">
+                        <button className="mt-10 mb-10 bg-blue-medium hover:text-yellow text-white py-2 px-4 rounded transition-colors">
                             See More
                         </button>
                     </NavLink>
