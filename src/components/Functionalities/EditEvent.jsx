@@ -141,17 +141,18 @@ function EditEvent() {
 
         <form onSubmit={handleFormSubmit} className="space-y-4">
           <div>
-            <label className="block text-blue">Title:</label>
+            <label className="block text-blue">(*) Title:</label>
             <input
               type="text"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
             />
           </div>
           <div>
-            <label className="block text-blue">Activity:</label>
+            <label className="block text-blue">(*) Activity:</label>
             <select
               name="activityId"
               value={activity}
@@ -169,46 +170,54 @@ function EditEvent() {
           </div>
 
           <div>
-            <label className="block text-blue">Start Date:</label>
+            <label className="block text-blue">(*) Start Date:</label>
             <input
               type="date"
               name="startDate"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
+              min="1000-01-01"
+              max="9999-12-31"
             />
           </div>
 
           <div>
-            <label className="block text-blue">Start Time:</label>
+            <label className="block text-blue">(*) Start Time:</label>
             <input
               type="time"
               name="startTime"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
             />
           </div>
 
           <div>
-            <label className="block text-blue">End Date:</label>
+            <label className="block text-blue">(*) End Date:</label>
             <input
               type="date"
               name="endDate"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
+              min="1000-01-01"
+              max="9999-12-31"
             />
           </div>
 
           <div>
-            <label className="block text-blue">End Time:</label>
+            <label className="block text-blue">(*) End Time:</label>
             <input
               type="time"
               name="endTime"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
             />
           </div>
 
@@ -235,18 +244,19 @@ function EditEvent() {
           </div>
 
           <div>
-            <label className="block text-blue">Meeting Point:</label>
+            <label className="block text-blue">(*) Meeting Point:</label>
             <input
               type="text"
               name="meetingPoint"
               value={meetingPoint}
               onChange={(e) => setMeetingPoint(e.target.value)}
               className="w-full p-2 border border-gray-light rounded-md"
+              required
             />
           </div>
 
           <div>
-            <label className="block text-blue">Target Audience:</label>
+            <label className="block text-blue">(*) Target Audience:</label>
             <select
               name="targetAudience"
               value={targetAudience}

@@ -152,6 +152,8 @@ function CreateEvent() {
                         onChange={(e) => setStartDate(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
                         required
+                        min="1000-01-01"
+                        max="9999-12-31"
                     />
                 </div>
 
@@ -176,6 +178,8 @@ function CreateEvent() {
                         onChange={(e) => setEndDate(e.target.value)}
                         className="w-full p-2 border border-gray-light rounded-md"
                         required
+                        min="1000-01-01"
+                        max="9999-12-31"
                     />
                 </div>
 
