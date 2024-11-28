@@ -11,7 +11,7 @@ function EventDetailsPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const { eventId } = useParams();
     const [event, setEvent] = useState(null);
-    const { activityId } = useParams();
+    const { activityId } = useState(null);
     const [activity, setActivity] = useState(null);
 
     useEffect(() => {
@@ -21,15 +21,18 @@ function EventDetailsPage() {
     }, [eventId]);
 
     useEffect(() => {
-        activitiesService
-            .getActivity(activityId)
-            .then((response) => setActivity(response.data))
-            .catch((err) => console.log(err));
-    }, [activityId]);
+        if (event && event.activity && event.activity._id) {
+            activitiesService
+                .getActivity(event.activity._id)
+                .then((response) => setActivity(response.data))
+                .catch((err) => console.log(err));
+        }
+    }, [event]);
 
 
     const deleteEvent = () => {
-        eventsService.deleteEvent(eventId)
+        eventsService
+            .deleteEvent(eventId)
             .then(() => navigate("/api/events"))
             .catch(err => console.log(err));
     };

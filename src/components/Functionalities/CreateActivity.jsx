@@ -44,17 +44,18 @@ function CreateActivity() {
       <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
         <h3 className="text-2xl font-bold mb-6 text-center text-blue-medium">Create Activity</h3>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-blue-medium">Title:</label>
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-2 border border-gray-light rounded-md"
-            />
-          </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-blue-medium">(*) Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full p-2 border border-gray-light rounded-md"
+            required
+          />
+        </div>
 
           <div>
             <label className="block text-blue-medium">Description:</label>
@@ -84,27 +85,29 @@ function CreateActivity() {
             </select>
           </div>
 
-          <div>
-            <label className="block text-blue-medium">Location:</label>
-            <input
-              type="text"
-              name="location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-2 border border-gray-light rounded-md"
-            />
-          </div>
+        <div>
+          <label className="block text-blue-medium">(*) Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="w-full p-2 border border-gray-light rounded-md"
+            required
+          />
+        </div>
 
-          <div>
-            <label className="block text-blue-medium">Image URL:</label>
-            <input
-              type="text" // Corrected type from "image URL" to "text"
-              name="image URL"
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-              className="w-full p-2 border border-gray-light rounded-md"
-            />
-          </div>
+        <div>
+          <label className="block text-blue-medium">(*) Image URL:</label>
+          <input
+            type="text" // Corrected type from "image URL" to "text"
+            name="image URL"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="w-full p-2 border border-gray-light rounded-md"
+            required
+          />
+        </div>
 
           <div className="flex justify-center">
             <button
