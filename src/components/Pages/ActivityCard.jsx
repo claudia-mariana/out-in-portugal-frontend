@@ -19,8 +19,8 @@ function ActivityCard(activity) {
         <div className="content relative flex flex-col  justify-end w-full pb-2 bottom-0 ">
           <h3 className="text-black my-1 text-center text-lg font-semibold">
             {activity.title}</h3>
-          <p className="text-black text-center text-base">
-            {activity.location}</p>
+          {/* <p className="text-black text-center text-base">
+            {activity.location}</p> */}
         </div>
       </div>
     </Link>
