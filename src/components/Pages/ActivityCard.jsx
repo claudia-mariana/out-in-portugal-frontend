@@ -17,7 +17,7 @@ function ActivityCard(activity) {
             {activity.category}</span>
         </div>
         <div className="content relative flex flex-col  justify-end w-full pb-0 bottom-0 ">
-          <h3 className="text-black text-center text-2xl mt-10 font-semibold">
+          <h3 className="text-blue text-center text-2xl mt-10 font-semibold">
             {activity.title}</h3>
           {/* <p className="text-black text-center text-base">
             {activity.location}</p> */}
