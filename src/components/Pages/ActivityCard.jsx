@@ -13,11 +13,11 @@ function ActivityCard(activity) {
           alt={activity.title}
           className="w-full h-[70%] object-cover" />
         <div>
-          <span className="absolute top-2 left-2 text-black bg-yellow text-left text-sm px-1 py-1 rounded-md">
+          <span className="absolute top-2 left-2 text-blue bg-yellow text-left text-sm px-1 py-1 rounded-md">
             {activity.category}</span>
         </div>
         <div className="content relative flex flex-col  justify-end w-full pb-0 bottom-0 ">
-          <h3 className="text-blue text-center text-2xl mt-10 font-semibold">
+          <h3 className="text-blue-medium text-center text-2xl mt-10 font-semibold">
             {activity.title}</h3>
           {/* <p className="text-black text-center text-base">
             {activity.location}</p> */}
