@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EventCard from "../Functionalities/EventCard";
 import eventsService from "../../services/events.service";
+import Notification from "../Functionalities/Notification"
+
 
 function EventsListPage() {
   const [events, setEvents] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   const getAllEvents = () => {
     eventsService
@@ -17,6 +21,13 @@ function EventsListPage() {
     getAllEvents();
   }, []);
 
+  const showError = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => setErrorMessage(''), 3000);
+  };
+
+
+
     // Handle deletion of an event
     const handleDeleteEvent = (deletedId) => {
       // Filter out the deleted event from state
@@ -25,6 +36,8 @@ function EventsListPage() {
 
   return (
     <div>
+      <Notification message={errorMessage} onClose={() => setErrorMessage('')} />
+
       <h1 className="text-center my-10 text-5xl font-bold">
       Let’s Make Plans!
         </h1>
@@ -37,7 +50,7 @@ function EventsListPage() {
       <div className="events-container flex flex-wrap justify-center items-center w-full my-10">
       {events.toReversed().map((event) => (
         <div key={event._id}>
-          <EventCard {...event} onDelete={handleDeleteEvent} />
+          <EventCard {...event} onDelete={handleDeleteEvent} setError={showError}  />
         </div>
       ))}
       </div>

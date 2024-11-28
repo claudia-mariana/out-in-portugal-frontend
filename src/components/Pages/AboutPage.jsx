@@ -1,4 +1,4 @@
-import about from "../Images/about.jpg"
+import about from "../images/about.jpg"
 
 function AboutPage() {
     return (

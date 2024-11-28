@@ -37,8 +37,7 @@ function ActivityDetailsPage() {
         <>
           <div className="flex justify-center">
             <div className="flex flex-col items-center bg-white w-[70vw] m-[2vw] shadow-md">
-              <NavLink to={`/api/activities/activityCard`} className="w-full">
-                <div className="relative">
+                <div className="relative w-full">
                   <img
                     src={activity.imageUrl}
                     alt={activity.title}
@@ -48,7 +47,6 @@ function ActivityDetailsPage() {
                     <h3 className="font-bold text-4xl">{activity.title}</h3>
                   </div>
                 </div>
-              </NavLink>
               <div className="relative flex flex-col w-full left-3 ">
 
                 <div className="whitespace-no-wrap my-5">
