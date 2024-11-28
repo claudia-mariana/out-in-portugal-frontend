@@ -79,7 +79,7 @@ function ActivityDetailsPage() {
                 </div>
 
                 <div className="whitespace-no-wrap ">
-                  <h4 className="text-black text-xl font-semibold mb-5">
+                  <h4 className="text-black text-xl font-semibold ml-2 mb-5">
                     Events:
                   </h4>
                 </div>
