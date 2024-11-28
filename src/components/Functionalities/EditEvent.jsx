@@ -22,17 +22,20 @@ function EditEvent() {
     const [equipment, setEquipment] = useState("");
     const [price, setPrice] = useState(0);
 
-    const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState([]);
+  const [redirecting, setRedirecting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-    useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
-            .then(response => response.json())
-            .then(data => setActivities(data))
-            .catch(err => console.error('Error fetching activities:', err));
-    }, []);
+  const { eventId } = useParams();
+  const navigate = useNavigate();
 
-    const { eventId } = useParams();
-    const navigate = useNavigate();
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
+      .then(response => response.json())
+      .then(data => setActivities(data))
+      .catch(err => console.error('Error fetching activities:', err));
+  }, []);
 
     useEffect(() => {
         eventsService.getEvent(eventId)
@@ -75,17 +78,38 @@ function EditEvent() {
             price
         };
 
-        eventsService.updateEvent(eventId, requestBody)
-            .then(() => {
-                navigate(`/api/events/${eventId}`);
-            });
-    };
+    eventsService.updateEvent(eventId, requestBody)
+      .then((response) => {
+        navigate(`/api/events/${eventId}`);
+      });
+  };
 
-    const deleteEvent = () => {
-        eventsService.deleteEvent(eventId)
-            .then(() => navigate("/api/events"))
-            .catch((err) => console.log(err));
-    };
+  const deleteEvent = () => {
+    eventsService.deleteEvent(eventId)
+      .then(() => navigate("/api/events"))
+      .catch((err) => console.log(err));
+  };
+
+  // Loading spinner
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+        <p className="ml-4">Loading...</p>
+      </div>
+    );
+  }
+
+  // Not authenticated message
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-lg mx-auto mt-10 bg-blue p-6 rounded-lg shadow-md">
+        <h3 className="text-2xl font-bold mb-6 text-center text-yellow">
+          You need to log in to edit an event. <br />Redirecting...
+        </h3>
+      </div>
+    );
+  }
 
     return (
         <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
@@ -257,21 +281,23 @@ function EditEvent() {
             </div>
           </form>
 
-          <div className="flex justify-center space-x-4 mt-6">
-            <button 
-              onClick={deleteEvent} 
-              className="bg-red text-white px-4 py-2 rounded-md hover:bg-red-400 transition-colors"
-            >
-              Delete Event
-            </button>
-            <NavLink to={"/api/events"}>
-              <button className="bg-blue-medium text-white px-4 py-2 rounded-md hover:bg-blue-500 transition-colors">
-                Back
-              </button>
-            </NavLink>
-          </div>
-        </div>
-      );
+      <div className="flex justify-center space-x-4 mt-6">
+        <button
+          onClick={deleteEvent}
+          className="bg-red text-white px-4 py-2 rounded-md hover:bg-yellow transition-colors"
+        >
+          Delete Event
+        </button>
+        <NavLink to={"/api/events"}>
+          <button className="bg-blue-medium text-white px-4 py-2 rounded-md hover:text-yellow transition-colors">
+            Back
+          </button>
+        </NavLink>
+      </div>
+    </div>
+  );
 }
 
 export default EditEvent;
+
+

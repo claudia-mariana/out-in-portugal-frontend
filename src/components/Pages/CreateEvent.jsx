@@ -1,31 +1,54 @@
 import { useState, useEffect } from "react";
-import eventsService from "../../services/events.service";
 import { useNavigate } from "react-router-dom";
+import eventsService from "../../services/events.service";
 
 function CreateEvent() {
-    const [activities, setActivities] = useState([]);
-    const navigate = useNavigate();
+  const [activities, setActivities] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [redirecting, setRedirecting] = useState(false); // To track redirection state
+  const [isLoading, setIsLoading] = useState(true); // Loading state for activities and authentication check
+  const navigate = useNavigate();
 
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
-        .then(response => response.json())
-        .then(data => setActivities(data))
-        .catch(err => console.error('Error fetching activities:', err));
-    }, []);
+  // Fetch activities once component is mounted
+  useEffect(() => {
+    // Fetch activities
+    fetch(`${import.meta.env.VITE_API_URL}/api/activities`)
+      .then(response => response.json())
+      .then(data => {
+        setActivities(data);
+        setIsLoading(false); // Set loading to false once activities are fetched
+      })
+      .catch(err => {
+        console.error("Error fetching activities:", err);
+        setIsLoading(false); // Also stop loading if there's an error
+      });
+  }, []);
 
-    const [title, setTitle] = useState("");
-    const [activity, setActivity] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [startTime, setStartTime] = useState("");  // New state for start time
-    const [endDate, setEndDate] = useState("");
-    const [endTime, setEndTime] = useState("");      // New state for end time
-    const [description, setDescription] = useState("");
-    const [organization, setOrganization] = useState("");
-    const [meetingPoint, setMeetingPoint] = useState("");
-    const [targetAudience, setTargetAudience] = useState("");
-    const [duration, setDuration] = useState("");
-    const [equipment, setEquipment] = useState("");
-    const [price, setPrice] = useState("");
+  // AUTH VERIFICATION AND REDIRECTION
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token && !redirecting) {
+      setRedirecting(true); // Set redirection state to avoid multiple redirects
+      setTimeout(() => {
+        navigate("/auth/login", { replace: true }); // Redirect after a short delay
+      }, 2000);
+      setIsAuthenticated(false);
+    }
+  }, [navigate, redirecting]);
+
+
+  const [title, setTitle] = useState("");
+  const [activity, setActivity] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [meetingPoint, setMeetingPoint] = useState("");
+  const [targetAudience, setTargetAudience] = useState("");
+  const [duration, setDuration] = useState("");
+  const [equipment, setEquipment] = useState("");
+  const [price, setPrice] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();

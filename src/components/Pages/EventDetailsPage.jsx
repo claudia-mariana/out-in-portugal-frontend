@@ -8,7 +8,7 @@ import { ArrowLeftIcon, MapPinIcon, TrashIcon } from '@heroicons/react/24/outlin
 
 function EventDetailsPage() {
     const navigate = useNavigate();
-
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const { eventId } = useParams();
     const [event, setEvent] = useState(null);
     const { activityId } = useParams();
@@ -51,14 +51,16 @@ function EventDetailsPage() {
 
                         <div className="flex flex-col bg-gray-light w-[70vw] m-[2vw] shadow-lg rounded-md relative">
 
-                            <button
-                                onClick={() => {
-                                    deleteEvent();
-                                }}
-                                className="absolute top-0 right-0 m-[2vw] cursor-pointer pointer-events-auto z-50"
-                            >
-                                <TrashIcon className="w-[1.5vw]" />
-                            </button>
+
+                            {/* Only show the delete button if authenticated */}
+                            {isAuthenticated && (
+                                <button
+                                    onClick={deleteEvent}
+                                    className="absolute top-0 right-0 m-[1vw] cursor-pointer pointer-events-auto z-50"
+                                >
+                                    <TrashIcon className="w-[1vw]" />
+                                </button>
+                            )}
 
                             <div className="relative p-4 rounded-sm mt-5 ml-2">
                                 <h3 className="font-bold text-4xl">
