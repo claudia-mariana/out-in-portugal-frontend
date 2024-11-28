@@ -30,7 +30,7 @@ function EventsListPage() {
       </Link>
       </div>
       <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
-      {events.map((event) => (
+      {events.toReversed().map((event) => (
         <EventCard key={event._id} {...event} />
       ))}
       </div>

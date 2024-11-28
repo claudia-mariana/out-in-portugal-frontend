@@ -26,7 +26,7 @@ function CategoryPage() {
             </Link>
           </div>
           <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
-            {activities.map((activity) => (
+            {activities.toReversed().map((activity) => (
               <ActivityCard key={activity._id} {...activity} />
             ))}
           </div>

@@ -3,13 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import eventsService from "../../services/events.service";
 
+// Helping functions
 const formatDate = (date) => new Date(date).toISOString().split('T')[0];
+const formatTime = (date) => new Date(date).toISOString().split('T')[1].substring(0,5);
 
 function EditEvent() {
     const [title, setTitle] = useState("");
     const [activity, setActivity] = useState("");
     const [startDate, setStartDate] = useState("");
+    const [startTime, setStartTime] = useState(""); 
     const [endDate, setEndDate] = useState("");
+    const [endTime, setEndTime] = useState("");  
     const [description, setDescription] = useState("");
     const [organization, setOrganization] = useState("");
     const [meetingPoint, setMeetingPoint] = useState("");
@@ -31,14 +35,15 @@ function EditEvent() {
     const navigate = useNavigate();
 
     useEffect(() => {
-
         eventsService.getEvent(eventId)
             .then((response) => {
                 const oneEvent = response.data;
                 setTitle(oneEvent.title);
                 setActivity(oneEvent.activity._id);
                 setStartDate(formatDate(oneEvent.startDate));
+                setStartTime(formatTime(oneEvent.startDate)); 
                 setEndDate(formatDate(oneEvent.endDate));
+                setEndTime(formatTime(oneEvent.endDate));   
                 setDescription(oneEvent.description);
                 setOrganization(oneEvent.organization);
                 setMeetingPoint(oneEvent.meetingPoint);
@@ -48,31 +53,42 @@ function EditEvent() {
                 setPrice(oneEvent.price);
             })
             .catch((error) => console.log(error));
-
     }, [eventId]);
-
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const requestBody = { title, activity, startDate, endDate, description, organization, meetingPoint, targetAudience, duration, equipment, price };
+
+        const startDateTime = `${startDate}T${startTime}`;
+        const endDateTime = `${endDate}T${endTime}`;
+
+        const requestBody = { 
+            title, 
+            activity, 
+            startDate: startDateTime, 
+            endDate: endDateTime, 
+            description, 
+            organization, 
+            meetingPoint, 
+            targetAudience, 
+            duration, 
+            equipment, 
+            price
+        };
 
         eventsService.updateEvent(eventId, requestBody)
-            .then((response) => {
-                navigate(`/api/events/${eventId}`)
+            .then(() => {
+                navigate(`/api/events/${eventId}`);
             });
     };
 
-
     const deleteEvent = () => {
-
         eventsService.deleteEvent(eventId)
             .then(() => navigate("/api/events"))
             .catch((err) => console.log(err));
     };
 
-
     return (
-        <div className="max-w-lg mx-auto mt-10 bg-blue-light p-6 rounded-lg shadow-md">
+        <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
           <h3 className="text-2xl font-bold mb-6 text-center text-blue-medium">Edit this Event:</h3>
     
           <form onSubmit={handleFormSubmit} className="space-y-4">
@@ -86,7 +102,6 @@ function EditEvent() {
                 className="w-full p-2 border border-gray-light rounded-md"
               />
             </div>
-    
             <div>
               <label className="block text-blue">Activity:</label>
               <select
@@ -115,6 +130,17 @@ function EditEvent() {
                 className="w-full p-2 border border-gray-light rounded-md"
               />
             </div>
+
+            <div>
+              <label className="block text-blue">Start Time:</label>
+              <input
+                type="time"
+                name="startTime"
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)}
+                className="w-full p-2 border border-gray-light rounded-md"
+              />
+            </div>
     
             <div>
               <label className="block text-blue">End Date:</label>
@@ -123,6 +149,17 @@ function EditEvent() {
                 name="endDate"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
+                className="w-full p-2 border border-gray-light rounded-md"
+              />
+            </div>
+
+            <div>
+              <label className="block text-blue">End Time:</label>
+              <input
+                type="time"
+                name="endTime"
+                value={endTime}
+                onChange={(e) => setEndTime(e.target.value)}
                 className="w-full p-2 border border-gray-light rounded-md"
               />
             </div>
@@ -177,64 +214,64 @@ function EditEvent() {
               </select>
             </div>
 
-<div>
-          <label className="block text-blue">Duration:</label>
-          <input
-            type="text"
-            name="duration"
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-            className="w-full p-2 border border-gray-light rounded-md"
-          />
-        </div>
+            <div>
+              <label className="block text-blue">Duration:</label>
+              <input
+                type="text"
+                name="duration"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                className="w-full p-2 border border-gray-light rounded-md"
+              />
+            </div>
 
-        <div>
-          <label className="block text-blue">Equipment:</label>
-          <input
-            type="text"
-            name="equipment"
-            value={equipment}
-            onChange={(e) => setEquipment(e.target.value)}
-            className="w-full p-2 border border-gray-light rounded-md"
-          />
-        </div>
+            <div>
+              <label className="block text-blue">Equipment:</label>
+              <input
+                type="text"
+                name="equipment"
+                value={equipment}
+                onChange={(e) => setEquipment(e.target.value)}
+                className="w-full p-2 border border-gray-light rounded-md"
+              />
+            </div>
 
-        <div>
-          <label className="block text-blue">Price (€):</label>
-          <input
-            type="text"
-            name="price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="w-full p-2 border border-gray-light rounded-md"
-          />
-        </div>
+            <div>
+              <label className="block text-blue">Price (€):</label>
+              <input
+                type="text"
+                name="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className="w-full p-2 border border-gray-light rounded-md"
+              />
+            </div>
 
-        <div className="flex justify-center">
-          <button 
-            type="submit"
-            className="bg-blue-medium text-white py-2 px-4 rounded-md hover:text-yellow transition-colors"
-          >
-            Save Changes
-          </button>
-        </div>
-      </form>
+            <div className="flex justify-center">
+              <button 
+                type="submit"
+                className="bg-blue-medium text-white py-2 px-4 rounded-md hover:text-yellow transition-colors"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
 
-      <div className="flex justify-center space-x-4 mt-6">
-        <button 
-          onClick={deleteEvent} 
-          className="bg-red text-white px-4 py-2 rounded-md hover:bg-yellow transition-colors"
-        >
-          Delete Event
-        </button>
-        <NavLink to={"/api/events"}>
-          <button className="bg-blue-medium text-white px-4 py-2 rounded-md hover:text-yellow transition-colors">
-            Back
-          </button>
-        </NavLink>
-      </div>
-    </div>
-  );
+          <div className="flex justify-center space-x-4 mt-6">
+            <button 
+              onClick={deleteEvent} 
+              className="bg-red text-white px-4 py-2 rounded-md hover:bg-red-400 transition-colors"
+            >
+              Delete Event
+            </button>
+            <NavLink to={"/api/events"}>
+              <button className="bg-blue-medium text-white px-4 py-2 rounded-md hover:bg-blue-500 transition-colors">
+                Back
+              </button>
+            </NavLink>
+          </div>
+        </div>
+      );
 }
 
 export default EditEvent;
