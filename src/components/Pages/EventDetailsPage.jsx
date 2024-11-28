@@ -88,6 +88,12 @@ function EventDetailsPage() {
                                     </div>
                                     <div className="whitespace-no-wrap my-7">
                                         <p className="text-black text-base font-semibold ml-2">
+                                            Description:</p>
+                                        <p className="text-black text-base m-2">
+                                            {event.description}</p>
+                                    </div>
+                                    <div className="whitespace-no-wrap my-7">
+                                        <p className="text-black text-base font-semibold ml-2">
                                             Hosted by:</p>
                                         <p className="text-black text-base m-2">
                                             {event.organization}</p>
