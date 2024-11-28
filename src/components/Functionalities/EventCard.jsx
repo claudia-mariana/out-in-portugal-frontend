@@ -10,7 +10,6 @@ const formatDate = (dateString) => {
 }
 
 
-
 function EventCard(event) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
@@ -24,8 +23,14 @@ function EventCard(event) {
 
   const deleteEvent = () => {
     if (!isAuthenticated) {
-      alert("You must be logged in to delete an event.");
-      return;
+      return (
+        <div className="max-w-lg mx-auto mt-10 bg-blue p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold mb-6 text-center text-yellow">
+                You need to log in to delete an event.
+                <br></br>Redirecting...
+            </h3>
+        </div>
+    );;
     }
 
     eventsService.deleteEvent(event._id)
@@ -70,7 +75,6 @@ function EventCard(event) {
             </div>
 
           </NavLink>
-          {/* Only show the delete button if authenticated */}
           {isAuthenticated && (
             <button
               onClick={deleteEvent}

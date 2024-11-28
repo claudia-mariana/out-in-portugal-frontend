@@ -32,8 +32,8 @@ function EventsListPage() {
       <div className="flex flex-wrap justify-center gap-6 px-4 mx-auto mb-20">
       
       {events.toReversed().map((event) => (
-        <div className="w-full sm:w-[calc(33.33%-1.5rem)] md:w-[calc(25%-1.5rem)]">
-        <EventCard key={event._id} {...event} />
+        <div key={event._id} className="w-full sm:w-[calc(33.33%-1.5rem)] md:w-[calc(25%-1.5rem)]">
+          <EventCard {...event} />
         </div>
       ))}
       </div>
