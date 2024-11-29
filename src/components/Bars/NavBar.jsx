@@ -81,7 +81,7 @@ function NavBar() {
             ) : (
               <>
                 <Link to="/api/events" onClick={handleMenuClose}>
-                  <button className="hover:text-yellow p-2 rounded">
+                  <button className="text-yellow p-2 rounded">
                     {user.name}
                   </button>
                 </Link>
