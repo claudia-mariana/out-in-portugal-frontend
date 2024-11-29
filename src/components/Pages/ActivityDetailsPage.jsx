@@ -1,9 +1,7 @@
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import activitiesService from "../../services/activities.service";
 import { useState, useEffect } from "react";
-import { ArrowLeftIcon, MapPinIcon } from '@heroicons/react/24/outline'
-import { format } from 'date-fns';
-
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 function ActivityDetailsPage() {
 
@@ -56,16 +54,6 @@ function ActivityDetailsPage() {
                   <span className="text-black bg-yellow text-base px-1 py-1 rounded-md">
                     {activity.category}
                   </span>
-
-                  {/* <div className="whitespace-no-wrap my-5">
-                    <p className="text-black text-base font-semibold m-2">
-                      Location:
-                    </p>
-                    <MapPinIcon className=" w-[1.5vw] text-blue inline-block m-2" />
-                    <p className="text-black text-base m-2 inline-block">
-                      {activity.location}
-                    </p>
-                  </div> */}
 
                   <div className="whitespace-no-wrap my-5">
                     <p className="text-black text-base font-semibold m-2">
