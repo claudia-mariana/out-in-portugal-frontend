@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-blue-light text-blue-medium p-3 mt-10 max-h-12">
+    <footer className="bg-blue-light text-blue-medium p-3 max-h-12">
       <div className="flex flex-row  md:flex-row justify-center items-center space-y-0 space-x-6">
         <a
           href="https://github.com/claudia-mariana/out-in-portugal-frontend"

@@ -60,7 +60,7 @@ function EventDetailsPage() {
             {event ? (
                 <>
                     <div className="flex flex-col items-center">
-                        <div className="flex flex-col bg-gray-light w-full sm:w-[90vw] lg:w-[70vw] m-4 shadow-lg rounded-md relative">
+                        <div className="flex flex-col bg-gray-light w-full sm:w-[90vw] lg:w-[70vw] m-4 shadow-lg rounded-md relative mb-32">
                             <div className="relative p-4 rounded-sm mt-5 ml-2">
                                 <h3 className="font-bold text-3xl sm:text-4xl">{event.title}</h3>
                             </div>

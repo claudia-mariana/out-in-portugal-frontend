@@ -34,7 +34,7 @@ function ActivityDetailsPage() {
       {activity ? (
         <>
           <div className="flex justify-center">
-            <div className="flex flex-col items-center bg-white w-[90vw] md:w-[70vw] m-[2vw] shadow-md">
+            <div className="flex flex-col items-center bg-white w-[90vw] md:w-[70vw] m-[2vw] shadow-md mb-32">
               <div className="relative w-full">
                 <img
                   src={activity.imageUrl}

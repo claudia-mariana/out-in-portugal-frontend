@@ -34,7 +34,7 @@ function LogInPage(props) {
       });
   };
   return (
-    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20">
+    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20 mb-32">
       <div className="flex flex-col items-start justify-center p-10 space-y-4 md:w-2/5 w-full">
         <p className="text-white text-3xl sm:text-4xl font-bold">
           We have missed you! Let's explore outdoor activities in Portugal.
@@ -44,7 +44,7 @@ function LogInPage(props) {
         </p>
       </div>
   
-      <div className="w-full md:w-3/5 p-10 md:p-20 bg-white rounded-lg shadow-md mt-10 md:mt-0">
+      <div className="w-full md:w-3/5 p-10 md:p-20 bg-white rounded-lg shadow-md mt-10 md:mt-0 ">
         <h1 className="text-2xl font-bold text-center text-blue mb-6">Log In</h1>
         <form onSubmit={handleLogInSubmit} className="space-y-6">
           <div>

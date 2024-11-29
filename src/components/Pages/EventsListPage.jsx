@@ -46,7 +46,7 @@ function EventsListPage() {
             </button>
           </Link>
         </div>
-        <div className="events-container grid grid-cols-1 md:flex md:flex-row md:flex-wrap justify-center items-center w-full my-10 gap-4 px-4">
+        <div className="events-container grid grid-cols-1 md:flex md:flex-row md:flex-wrap justify-center items-center w-full my-10 gap-4 px-4 mb-32">
           {events.toReversed().map((event) => (
             <div key={event._id} className="w-full md:w-auto">
               <EventCard {...event} onDelete={handleDeleteEvent} setError={showError} />

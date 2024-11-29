@@ -21,7 +21,7 @@ function ActivitiesListPage() {
 
   return (
     <>
-    <h1 className="text-center w-screen my-10 text-5xl font-bold text-blue-medium">Let's Explore!</h1>
+    <h1 className="text-center w-screen my-10 text-5xl font-bold text-blue-medium ">Let's Explore!</h1>
     
     <div className="activities-container overflow-hidden flex flex-col sm:flex-row flex-wrap justify-center items-center w-full my-10">
     {activities.toReversed().map((activity) => (
@@ -30,7 +30,7 @@ function ActivitiesListPage() {
       </div>
       <div className="flex justify-center">
       <Link to={"/api/activities/create"}>
-        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md  hover:text-yellow"> 
+        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md  hover:text-yellow mb-32"> 
           Create Activity </button>
       </Link>
       </div>
