@@ -93,7 +93,7 @@ function EventDetailsPage() {
                                         <p className="text-black text-base font-semibold ml-2">
                                             Meeting Point:
                                         </p>
-                                        <MapPinIcon className=" w-[1.5vw] text-blue inline-block ml-2" />
+                                        <MapPinIcon className=" w-[1.5vw] text-orange inline-block ml-2 font-extrabold" />
                                         <p className="text-black text-base m-2 inline-block">
                                             {event.meetingPoint}
                                         </p>

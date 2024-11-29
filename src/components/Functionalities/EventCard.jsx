@@ -51,9 +51,9 @@ function EventCard({ _id, title, meetingPoint, startDate, endDate, onDelete, set
           <div className="content relative flex flex-col justify-end w-full pb-2 bottom-0">
             <h3 className="text-black text-xl font-semibold m-2">{title}</h3>
             <div>
-              <p className="text-black text-base font-semibold ml-2">Meeting Point:</p>
-              <MapPinIcon className="w-[1vw] text-blue inline-block ml-2" />
-              <p className="text-black text-base m-2 mb-5">{meetingPoint}</p>
+              <p className="text-black text-base font-semibold ml-2 mt-3"></p>
+              <MapPinIcon className="w-[1.5vw] text-orange inline-block ml-2 font-extrabold" />
+              <p className="text-black text-base m-2 mb-10 inline-block">{meetingPoint}</p>
             </div>
             <div>
               <p className="text-black text-base font-semibold ml-2 inline-block">Start Date:</p>
