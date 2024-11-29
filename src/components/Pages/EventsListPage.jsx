@@ -34,29 +34,29 @@ function EventsListPage() {
       setEvents((prevEvents) => prevEvents.filter(event => event._id !== deletedId));
     };
 
-  return (
-    <div>
-      <Notification message={errorMessage} onClose={() => setErrorMessage('')} />
-
-      <h1 className="text-center my-10 text-5xl font-bold">
-      Let’s Make Plans!
-        </h1>
-      <div className="flex justify-center">
-      <Link to={"/api/events/create"}>
-        <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md  hover:text-yellow"> 
-          Create Event </button>
-      </Link>
-      </div>
-      <div className="events-container flex flex-wrap justify-center items-center w-full my-10">
-      {events.toReversed().map((event) => (
-        <div key={event._id}>
-          <EventCard {...event} onDelete={handleDeleteEvent} setError={showError}  />
+    return (
+      <div>
+        <Notification message={errorMessage} onClose={() => setErrorMessage('')} />
+    
+        <h1 className="text-center my-10 text-5xl font-bold">Let’s make plans!</h1>
+        <div className="flex justify-center">
+          <Link to={"/api/events/create"}>
+            <button className="bg-blue center text-white py-2 px-4 rounded-md shadow-md hover:text-yellow">
+              Create Event
+            </button>
+          </Link>
         </div>
-      ))}
+        <div className="events-container grid grid-cols-1 md:flex md:flex-row md:flex-wrap justify-center items-center w-full my-10 gap-4 px-4">
+          {events.toReversed().map((event) => (
+            <div key={event._id} className="w-full md:w-auto">
+              <EventCard {...event} onDelete={handleDeleteEvent} setError={showError} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+
+  }
 
 export default EventsListPage;
 
