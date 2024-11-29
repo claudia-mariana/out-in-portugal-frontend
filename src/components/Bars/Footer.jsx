@@ -1,10 +1,10 @@
 function Footer() {
   return (
-    <footer className="bg-gray text-white p-3 mt-10 max-h-12">
-      <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+    <footer className="bg-blue-light text-blue-medium p-3 mt-10 max-h-12">
+      <div className="flex flex-row  md:flex-row justify-center items-center space-y-0 space-x-6">
         <a
           href="https://github.com/claudia-mariana/out-in-portugal-frontend"
-          className="hover:underline"
+          className="text-blue hover:underline font-bold"
           target="_blank"
           rel="noopener noreferrer"
         >
