@@ -107,7 +107,7 @@ function CreateEvent() {
     // Early return if not authenticated
     if (!isAuthenticated) {
         return (
-            <div className="max-w-lg mx-auto mt-10 bg-blue p-6 rounded-lg shadow-md">
+            <div className="max-w-lg mx-auto mt-10 bg-blue p-6 rounded-lg shadow-md ">
                 <h3 className="text-2xl font-bold mb-6 text-center text-yellow">
                     You need to log in to create an event.
                     <br></br>Redirecting...
@@ -123,7 +123,7 @@ function CreateEvent() {
                     <ArrowLeftIcon className="absolute w-[1.5vw] m-[2vw] text-blue" />
                 </NavLink>
             </div>
-            <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
+            <div className="max-w-lg mx-auto mt-10 bg-blue-light p-6 rounded-lg shadow-md mb-32">
                 <h3 className="text-2xl font-bold mb-6 text-center text-blue-medium">Create Event</h3>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

@@ -47,7 +47,7 @@ function CreateActivity() {
           <ArrowLeftIcon className="absolute w-[1.5vw] m-[2vw] text-blue" />
         </NavLink>
       </div>
-      <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md">
+      <div className="max-w-lg mx-auto mt-10 mb-10 bg-blue-light p-6 rounded-lg shadow-md mb-32">
         <h3 className="text-2xl font-bold mb-6 text-center text-blue-medium">Create Activity</h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">

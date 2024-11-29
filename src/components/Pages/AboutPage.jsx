@@ -2,7 +2,7 @@ import about from "../images/about.jpg"
 
 function AboutPage() {
     return (
-      <div className="max-w-5xl mx-auto mt-10 mb-6 p-6 bg-white rounded-lg shadow-md">
+      <div className="max-w-5xl mx-auto mt-10 mb-32 p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-5xl font-bold text-center text-blue mb-8">
           Welcome to OutInPortugal
           </h1>

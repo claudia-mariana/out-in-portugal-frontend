@@ -38,7 +38,7 @@ function SignUpPage() {
   };
   http://localhost:5173/src/components/images/homepageBackground.png?t=1732870604240
   return (
-    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20">
+    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20 mb-32">
       {/* Left Half - Proposition Text */}
       <div className="flex flex-col items-start justify-center p-10 space-y-4 w-full md:w-2/5">
         <p className="text-white text-3xl sm:text-4xl font-bold">
