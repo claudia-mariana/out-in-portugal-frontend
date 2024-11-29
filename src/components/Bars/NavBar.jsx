@@ -80,11 +80,11 @@ function NavBar() {
               </>
             ) : (
               <>
-                <Link to="/api/events" onClick={handleMenuClose}>
-                  <button className="text-yellow p-2 rounded">
+                {/* <Link to="/api/events" onClick={handleMenuClose}> */}
+                  <button className="text-yellow p-2 rounded cursor-default">
                     {user.name}
                   </button>
-                </Link>
+                {/* </Link> */}
                 <button
                   onClick={() => {
                     logOutUser();

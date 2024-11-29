@@ -7,7 +7,7 @@ function ActivityDetailsPage() {
 
   const { activityId } = useParams();
   const [activity, setActivity] = useState(null);
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(() => {
     activitiesService
@@ -27,7 +27,7 @@ function ActivityDetailsPage() {
     <div>
       <div>
         <NavLink to={"/api/activities"}>
-          <ArrowLeftIcon className="absolute w-[5vw] m-[2vw] text-blue" />
+          <ArrowLeftIcon className="absolute w-[5vw] m-[2vw] sm:w-[2vw] text-blue" />
         </NavLink>
       </div>
   

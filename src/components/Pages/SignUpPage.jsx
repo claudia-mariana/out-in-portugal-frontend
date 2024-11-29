@@ -1,14 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 
-function SignUpPage(props) {
+function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
+  
   const navigate = useNavigate();
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -16,19 +18,25 @@ function SignUpPage(props) {
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
     const requestBody = { email, password, name };
+    
+    authService.signup(requestBody)
+      .then((response) => {
+        const { authToken } = response.data;
 
-    authService
-      .signup(requestBody)
-      .then(() => {
-        navigate("/auth/login");
+        // Store the token and authenticate the user
+        storeToken(authToken);
+        authenticateUser();
+        
+        // Redirect the user
+        navigate("/");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.response?.data?.message || "An error occurred";
         setErrorMessage(errorDescription);
       });
   };
+  http://localhost:5173/src/components/images/homepageBackground.png?t=1732870604240
   return (
     <div className="flex flex-col md:flex-row w-full justify-center items-center py-20">
       {/* Left Half - Proposition Text */}
@@ -40,11 +48,11 @@ function SignUpPage(props) {
           Create and manage your events on our platform!
         </p>
       </div>
-  
+
       {/* Right Half - Sign Up Form */}
       <div className="w-full md:w-3/5 p-10 md:p-20 bg-white rounded-lg shadow-md mt-10 md:mt-0">
         <h1 className="text-2xl font-bold text-center text-blue mb-6">Sign Up</h1>
-  
+
         <form onSubmit={handleSignUpSubmit} className="space-y-6">
           <div>
             <label className="block text-blue">Email:</label>
@@ -56,7 +64,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-  
+
           <div>
             <label className="block text-blue">Password:</label>
             <input
@@ -67,7 +75,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-  
+
           <div>
             <label className="block text-blue">Name:</label>
             <input
@@ -78,7 +86,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-  
+
           <div className="flex justify-center">
             <button
               type="submit"
@@ -88,11 +96,11 @@ function SignUpPage(props) {
             </button>
           </div>
         </form>
-  
+
         {errorMessage && (
           <p className="text-red text-center mt-4">{errorMessage}</p>
         )}
-  
+
         <p className="text-blue-medium text-center mt-4">
           Already have an account?{" "}
           <Link to={"/auth/login"} className="text-blue-medium hover:text-yellow">
