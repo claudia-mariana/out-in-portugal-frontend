@@ -27,11 +27,11 @@ function App() {
     switch (location.pathname) {
       case '/auth/login':
       case '/auth/signup':
-        return 'bg-blue'; // Use a blue background for login and signup
+        return 'bg-blue'; 
       case '/about-page':
-        return 'bg-blue-light'; // Use a soft yellow background for about page
+        return 'bg-blue-light'; 
       default:
-        return 'bg-white'; // Default to white, or any other background for other pages
+        return 'bg-white'; 
     }
   };
 

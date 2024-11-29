@@ -23,8 +23,8 @@ function ActivitiesListPage() {
     <>
     <h1 className="text-center my-10 text-5xl font-bold">Let's Explore!</h1>
     
-      <div className="activities-container flex flex-wrap justify-center items-center w-full my-10">
-        {activities.toReversed().map((activity) => (
+    <div className="activities-container flex flex-col sm:flex-row flex-wrap justify-center items-center w-full my-10">
+    {activities.toReversed().map((activity) => (
         <ActivityCard key={activity._id} {...activity} />
       ))}
       </div>

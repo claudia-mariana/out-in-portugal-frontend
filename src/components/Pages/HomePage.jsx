@@ -47,8 +47,8 @@ function HomePage() {
                 <img src={homepageBackground} className='w-full h-80 object-cover object-top' alt="background" />
 
                 <h1 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-extrabold text-4xl md:text-4xl text-center px-4"
-                style={{
+  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-extrabold text-2xl md:text-4xl text-center w-11/12 sm:w-3/4 md:w-auto leading-tight"
+  style={{
                     textShadow: '40 0 0px #535269, 40 0 0px #535269',
                   }}
                 >

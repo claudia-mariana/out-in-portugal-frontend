@@ -6,7 +6,7 @@ function ActivityCard(activity) {
   return (
     <Link to={`/api/activities/${activity._id}`}
       className="block">
-      <div className="activity-card flex flex-col items-center relative bg-white w-[25vw] h-[50vh] m-[1vw] rounded-md shadow-md overflow-hidden p-0 cursor-pointer transition-shadow hover:transform hover:-translate-y-1 hover:shadow-lg">
+      <div className="activity-card flex flex-col items-center relative bg-white w-full sm:w-[25vw] h-[50vh] m-[1vw] rounded-md shadow-md overflow-hidden p-0 cursor-pointer transition-shadow hover:transform hover:-translate-y-1 hover:shadow-lg">
 
         <img
           src={activity.imageUrl}
