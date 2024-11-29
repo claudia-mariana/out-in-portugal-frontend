@@ -30,21 +30,21 @@ function SignUpPage(props) {
       });
   };
   return (
-    <div className="flex-1 flex w-full justify-center items-center py-20">
+    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20">
       {/* Left Half - Proposition Text */}
-      <div className="flex flex-col items-start justify-center p-12 space-y-4 w-2/5">
-        <p className="text-white text-4xl font-bold">
-          Join us to show more of Portugal's outdoor activities to everyone.
+      <div className="flex flex-col items-start justify-center p-10 space-y-4 w-full md:w-2/5">
+        <p className="text-white text-3xl sm:text-4xl font-bold">
+          Join us to showcase Portugal's outdoor activities to everyone.
         </p>
-        <p className="text-yellow text-4xl font-bold">
+        <p className="text-yellow text-3xl sm:text-4xl font-bold">
           Create and manage your events on our platform!
         </p>
       </div>
-
+  
       {/* Right Half - Sign Up Form */}
-      <div className="w-3/5 p-20 bg-white rounded-lg shadow-md">
+      <div className="w-full md:w-3/5 p-10 md:p-20 bg-white rounded-lg shadow-md mt-10 md:mt-0">
         <h1 className="text-2xl font-bold text-center text-blue mb-6">Sign Up</h1>
-
+  
         <form onSubmit={handleSignUpSubmit} className="space-y-6">
           <div>
             <label className="block text-blue">Email:</label>
@@ -56,7 +56,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-
+  
           <div>
             <label className="block text-blue">Password:</label>
             <input
@@ -67,7 +67,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-
+  
           <div>
             <label className="block text-blue">Name:</label>
             <input
@@ -78,7 +78,7 @@ function SignUpPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-
+  
           <div className="flex justify-center">
             <button
               type="submit"
@@ -88,11 +88,11 @@ function SignUpPage(props) {
             </button>
           </div>
         </form>
-
+  
         {errorMessage && (
           <p className="text-red text-center mt-4">{errorMessage}</p>
         )}
-
+  
         <p className="text-blue-medium text-center mt-4">
           Already have an account?{" "}
           <Link to={"/auth/login"} className="text-blue-medium hover:text-yellow">

@@ -33,19 +33,18 @@ function LogInPage(props) {
         setErrorMessage(errorDescription);
       });
   };
-
   return (
-    <div className="flex-1 flex w-full justify-center items-center py-20">
-      <div className="flex flex-col items-start justify-center p-10 space-y-4 w-2/5">
-        <p className="text-white text-4xl font-bold">
+    <div className="flex flex-col md:flex-row w-full justify-center items-center py-20">
+      <div className="flex flex-col items-start justify-center p-10 space-y-4 md:w-2/5 w-full">
+        <p className="text-white text-3xl sm:text-4xl font-bold">
           We have missed you! Let's explore outdoor activities in Portugal.
         </p>
-        <p className="text-yellow text-4xl font-bold">
+        <p className="text-yellow text-3xl sm:text-4xl font-bold">
           Log in to your account!
         </p>
       </div>
-
-      <div className="w-3/5 p-20 bg-white rounded-lg shadow-md">
+  
+      <div className="w-full md:w-3/5 p-10 md:p-20 bg-white rounded-lg shadow-md mt-10 md:mt-0">
         <h1 className="text-2xl font-bold text-center text-blue mb-6">Log In</h1>
         <form onSubmit={handleLogInSubmit} className="space-y-6">
           <div>
@@ -58,7 +57,7 @@ function LogInPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-
+  
           <div>
             <label className="block text-blue">Password:</label>
             <input
@@ -69,7 +68,7 @@ function LogInPage(props) {
               className="w-full p-2 border border-blue-medium rounded-md"
             />
           </div>
-
+  
           <div className="flex justify-center">
             <button
               type="submit"
@@ -79,11 +78,11 @@ function LogInPage(props) {
             </button>
           </div>
         </form>
-
+  
         {errorMessage && (
           <p className="text-red text-center mt-4">{errorMessage}</p>
         )}
-
+  
         <p className="text-blue-medium text-center mt-4">
           Don't have an account yet?{" "}
           <Link to={"/auth/signup"} className="text-blue-medium hover:text-yellow">
@@ -95,4 +94,4 @@ function LogInPage(props) {
   );
 }
 
-export default LogInPage;
+export default LogInPage
