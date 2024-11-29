@@ -101,11 +101,7 @@ function EditEvent() {
       });
   };
 
-  const deleteEvent = () => {
-    eventsService.deleteEvent(eventId)
-      .then(() => navigate("/api/events"))
-      .catch((err) => console.log(err));
-  };
+  
 
   // Loading spinner
   if (isLoading) {
@@ -314,16 +310,6 @@ function EditEvent() {
             </button>
           </div>
         </form>
-
-        <div className="flex justify-center space-x-4 mt-6">
-          <button
-            onClick={deleteEvent}
-            className="bg-red text-white px-4 py-2 rounded-md hover:bg-yellow transition-colors"
-          >
-            Delete Event
-          </button>
-
-        </div>
       </div>
     </div>
   );

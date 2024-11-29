@@ -135,6 +135,7 @@ function CreateEvent() {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             className="w-full p-2 border border-gray-light rounded-md"
+                            required
                         />
                     </div>
 

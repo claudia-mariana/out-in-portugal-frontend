@@ -16,7 +16,7 @@ function ActivityCard(activity) {
           </span>
         </div>
         <div className="content relative flex flex-col justify-end w-full pb-0 bottom-0">
-          <h3 className="text-blue-medium text-center text-3xl mt-10 font-semibold">
+          <h3 className="text-blue-medium text-center text-3xl mt-5 font-semibold">
             {activity.title}
           </h3>
         </div>

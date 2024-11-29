@@ -46,7 +46,11 @@ function EventDetailsPage() {
 
     const isOwner = event && event.createdBy === userId;
 
-
+    const deleteEvent = () => {
+        eventsService.deleteEvent(eventId)
+            .then(() => navigate("/api/events"))
+            .catch((err) => console.log(err));
+    };
 
 
     return (
@@ -155,6 +159,7 @@ function EventDetailsPage() {
                                     </div>
                                 </div>
                             </div>
+                            <div className="flex flex-row justify-center m-5">
                             {isOwner && (
                                 <div className="flex flex-row justify-center m-5">
                                     <NavLink to={`/api/events/edit/${event._id}`}>
@@ -163,7 +168,22 @@ function EventDetailsPage() {
                                         </button>
                                     </NavLink>
                                 </div>
+
                             )}
+                            {isOwner && (
+                                <div className="flex flex-row justify-center m-5">
+                                    <button
+                                        onClick={deleteEvent}
+                                        className="bg-red text-white py-2 px-4 rounded-md shadow-md hover:transform hover:shadow-lg hover:text-yellow"
+                                    >
+                                        Delete Event
+                                    </button>
+
+                                </div>
+                            )}
+
+                            </div>
+                        
                         </div>
                     </div>
                 </>
